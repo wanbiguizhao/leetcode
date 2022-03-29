@@ -8,7 +8,7 @@ class Solution:
         for index,num in enumerate(nums):
             if num!=key:
                 continue 
-            ans_index=  max(k_boundary_index,index - k)
+            ans_index=  max(k_boundary_index,index - k)# k_boundary_index is [0,k_boundary_index) already userless 
             while ans_index <= index + k and ans_index < len(nums):
                 if ans_index>= k_boundary_index:
                     # already push to ans 
@@ -18,7 +18,7 @@ class Solution:
             
             k_boundary_index= ans_index
         return ans 
-
+#  k_boundary_index 代表的就是是开区间还是闭区间，要想清楚，以后这个是非常重要的一个注意点。
 
 
 
