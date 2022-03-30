@@ -28,7 +28,7 @@ class Solution:
                 else:
                     ans_list.append(int(str(data)+str(data)[::-1][1:]))
         return ans_list
-
+# 数学方法
 if __name__=="__main__":
     instance=Solution()
     ans=instance.kthPalindrome([2,4,6],4)
