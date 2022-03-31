@@ -5,7 +5,8 @@ class Solution:
             ans=mapping[num%10]
             power=0
             if num==0:
-                return mapping[num]
+                return ans 
+            ans=0
             while num>0:
                 ans=mapping[num%10]*10**power+ans
                 num=num//10
