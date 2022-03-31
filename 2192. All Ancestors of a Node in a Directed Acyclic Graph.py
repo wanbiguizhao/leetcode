@@ -1,11 +1,14 @@
 from collections import defaultdict
+from typing import List 
 class Solution:
     def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
-        out_degress_cache=defaultdict(list)
-        in_degree_cache=defaultdict(list)
+        # 存在重复遍历某些节点的情况。
+
+        
+        in_degree_cache=defaultdict(set)
         for edge in edges:
             from_node,to_node=edge
-            in_degree_cache[to_node].append(from_node)
+            in_degree_cache[to_node].add(from_node)
         ans=[]
         for node_id in range(n):
             node_ans=set()
@@ -18,4 +21,3 @@ class Solution:
                 node_list=t_node_set
             ans.append(sorted(node_ans))
         return ans 
-        
