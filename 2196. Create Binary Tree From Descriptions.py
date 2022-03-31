@@ -37,10 +37,7 @@ class Solution:
                     tmp_queue.append(node.right)
             queue=tmp_queue
         return root_tree_node
-        DOWN_LIMIT=len(ans)-1
-        while not ans[DOWN_LIMIT]:
-            DOWN_LIMIT-=1
-        return ans[:DOWN_LIMIT+1]
+
 
 if __name__=="__main__":
     solution=Solution()
