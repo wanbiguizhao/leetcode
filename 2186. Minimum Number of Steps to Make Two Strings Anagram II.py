@@ -1,6 +1,8 @@
 from collections import Counter
 
 class Solution:
+    # 空间换时间
+    # counter 
     def minSteps(self, s: str, t: str) -> int:
         s_counter=Counter(s)
         t_counter=Counter(t)
