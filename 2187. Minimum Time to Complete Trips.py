@@ -7,9 +7,10 @@ class Solution:
         #min_time_cost->[] 前闭后闭区间
         while min_time_cost_down<=min_time_cost_up:
             mid_cost=(min_time_cost_up+min_time_cost_down)//2
-            if totalTrips> sum([ mid_cost//t for t in time]):## 返回规定时间内，能运行的trips
+            min_cost_trips=sum([ mid_cost//t for t in time])
+            if totalTrips>min_cost_trips :## 返回规定时间内，能运行的trips
                 min_time_cost_down=mid_cost+1
-            elif totalTrips<=sum([ mid_cost//t for t in time]):
+            elif totalTrips<min_cost_trips:
                 min_time_cost_up=mid_cost-1
                 ans=mid_cost
         return ans 
