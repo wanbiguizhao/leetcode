@@ -1,15 +1,11 @@
-from codecs import xmlcharrefreplace_errors
-import heapq
-
-
 import heapq
 from collections import Counter
-from os import stat_result
-from tkinter.tix import Tree
+from inspect import stack
+from urllib.parse import scheme_chars
 
-from cv2 import repeat
 class Solution:
-    def repeatLimitedString(self, s: str, repeatLimit: int) -> str:
+    def repeatLimitedString_heaqpq(self, s: str, repeatLimit: int) -> str:
+        # heapq
         ORDER_INDEX=0
         CHAR_INDEX=1
         REMAING_INDEX=2
@@ -43,6 +39,41 @@ class Solution:
             if one_status[REMAING_INDEX]>0:
                 heapq.heappush(status_register,one_status)
         return "".join(ans)
+    def repeatLimitedString(self, s: str, repeatLimit: int) -> str:
+        # alphabet
+        s_counter=Counter(s)
+        status_stack=[]
+        for x in range(1,10):
+            print(x)
+        for x in range(ord('a'),ord('z')+1):
+            xchar=chr(x)
+            if xchar in s_counter:
+                status_stack.append([ 
+                    xchar,
+                    s_counter[xchar] 
+                ])
+                # 按照z->a 的顺序,存储位置
+        ans=""
+        while len(status_stack)>=2:
+            top_chr, top_count =status_stack[-1]
+            sec_chr, sec_count = status_stack[-2]
+            if top_count>repeatLimit:
+                ans+=top_chr*repeatLimit
+                status_stack[-1][1]-=repeatLimit
+                ans+=sec_chr
+                sec_count-=1
+                if sec_count>0:
+                    status_stack[-2][1]=sec_count 
+                else:
+                    status_stack.pop(-2)
+            else:
+                ans+=top_chr*top_count
+                status_stack.pop(-1)
+        if len(status_stack)==1 and ans[-1] != status_stack[0][0]:
+            ans+=min(repeatLimit,status_stack[0][1])*status_stack[0][0]
+        return ans 
+
+
 
 
 if __name__=="__main__":
