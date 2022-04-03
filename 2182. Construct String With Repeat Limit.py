@@ -43,8 +43,6 @@ class Solution:
         # alphabet
         s_counter=Counter(s)
         status_stack=[]
-        for x in range(1,10):
-            print(x)
         for x in range(ord('a'),ord('z')+1):
             xchar=chr(x)
             if xchar in s_counter:
@@ -69,7 +67,7 @@ class Solution:
             else:
                 ans+=top_chr*top_count
                 status_stack.pop(-1)
-        if len(status_stack)==1 and ans[-1] != status_stack[0][0]:
+        if not ans or (len(status_stack)==1 and ans[-1] != status_stack[0][0]):
             ans+=min(repeatLimit,status_stack[0][1])*status_stack[0][0]
         return ans 
 
