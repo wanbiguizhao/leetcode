@@ -1,25 +1,21 @@
 from filecmp import cmp
+import imp
 from typing import List 
+from functools import reduce
 class Solution:
     def minimumFinishTime(self, tires: List[List[int]], changeTime: int, numLaps: int) -> int:
-        new_tires=[]
-        for t in sorted(tires):
-            if not new_tires:
-                new_tires.append(t)
-                continue
-            if new_tires[-1][0]!=t[0]:
-                new_tires.append(t)
-        tires=new_tires
-        new_tires=[]
-        for t in sorted(tires,key=lambda x:x[1]):
-            if not new_tires:
-                new_tires.append(t)
-                continue
-            if new_tires[-1][1]!=t[1]:
-                new_tires.append(t)
-        tires=new_tires
-        ans=0
-        cost_lap_th_cache=[0]# 
+        
+        def filter(data,filter_index):
+            data=sorted(data,key=lambda x : x[filter_index:]+x[0:filter_index])
+            new_data=[]
+            new_data.append(data[0])
+            for d in data:
+                if new_data[-1][filter_index]!=d[filter_index]  :
+                    new_data.append(d)
+            return new_data
+        # 优化，过滤那些用不上的轮子。
+        tires=reduce(filter,[tires,0,1])
+        cost_lap_th_cache=[0]
         for lap_th in range(1,min(16,numLaps)+1):
             cost_lap_th_cache.append(
                 min([ fi*(ri**(lap_th)-1)/(ri-1) for fi,ri in tires ])
@@ -35,5 +31,5 @@ class Solution:
         return int(dp[numLaps])
 if __name__=="__main__":
     solution=Solution()
-    ans=solution.minimumFinishTime([[2,3],[3,4]],5,4)
+    ans=solution.minimumFinishTime([[2,3],[5,4],[3,4],[2,2]],5,4)
     print(ans)
