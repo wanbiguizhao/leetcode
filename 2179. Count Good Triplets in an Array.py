@@ -1,5 +1,3 @@
-from operator import index
-import re
 from typing import List
 from collections import defaultdict
 from bisect import bisect_left as lower_bound,bisect_right as higher_bound
@@ -118,6 +116,8 @@ class Solution:
         return per_n3(nums1,0,[])
     def goodTriplets(self, nums1: List[int], nums2: List[int]) -> int:
         # x，y，z 先找到  
+        # 线段树也使用了，总共148个用例，用了146 个TLE 了
+        # 关于线段是 tree_index left right 表示的是  tree——index的根节点与数组的[left,right ]的映射关系。 
         NUM_LEN=len(nums1)
         mapping_index_nums2={}
         for index,num in enumerate(nums2):
@@ -144,6 +144,7 @@ class Solution:
 
 if __name__=="__main__":
     solution=Solution()
+    # 
     # ans=solution.goodTriplets( nums1 = [2,0,1,3], nums2 = [0,1,2,3])
     ans=solution.goodTriplets(nums1 = [4,0,1,3,2], nums2 = [4,1,0,2,3])
     print(ans)
