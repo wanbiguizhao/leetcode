@@ -4,14 +4,8 @@ from collections import Counter
 from xmlrpc.client import TRANSPORT_ERROR
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        even_counter=Counter()
-        odd_counter=Counter()
-        for index,num in enumerate(nums):
-            if index%2==0:
-                even_counter.update([num])
-            else:
-                odd_counter.update([num])
-        
+        even_counter=Counter(nums[::2])
+        odd_counter=Counter(nums[1::2])
         even_cnt_list=sorted([ [num_cnt,num ]  for num,num_cnt in  even_counter.items()],reverse=True)
         odd_cnt_list=sorted([ [num_cnt,num ]  for num,num_cnt in  odd_counter.items()],reverse=True)
         if even_cnt_list[0][1]!=odd_cnt_list[0][1]:
