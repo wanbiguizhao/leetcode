@@ -8,7 +8,9 @@ class Solution:
         # 1-index, 从中间进行区分k，[1,k] 2n>k>=n 表示原来扣完n个数据的元素后,计算前n个有效元素的最后一个元素对应的是第k个坐标。
         # 此时[k+1,3n]的位置,肯定包含n个后面的数据，取n个最大的即可。
         # 转换成求前n个最大值，n个最小值了。
-        
+        # 有意思的定义变量left_index right_index 
+        # 熟悉了 使用heapq 求topk
+     
         const_s_len=len(nums)
         const_n=const_s_len//3
         left_min_list=[0]*const_s_len
