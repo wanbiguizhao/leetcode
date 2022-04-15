@@ -40,4 +40,6 @@ if __name__=="__main__":
     print(instance.subStrHash( s = "leetcodee", power = 7, modulo = 20, k = 2, hashValue = 0))
     print(instance.subStrHash(s = "fbxzaad", power = 31, modulo = 100, k = 3, hashValue = 32))
     print(instance.subStrHash( s = "laetcodee", power = 7, modulo = 20, k = 2, hashValue = 0))
+    
+
         
