@@ -21,4 +21,4 @@ class Solution:
             min_num=min(min_num,num)
         if max_num==min_num:
             return 0
-        return len( [num for num in nums if num !=max_num and num !=max_num   ] )
+        return len( [num for num in nums if num !=max_num and num !=max_num ] )
