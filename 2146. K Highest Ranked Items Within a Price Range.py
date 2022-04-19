@@ -11,8 +11,10 @@ class Solution:
         
         priority_queue=[]
         priority_queue.append(start)
-        if filter(start[0],start[1]):
+        if filter(start[0],start[1]) and pricing[0]<= grid[start[0]][start[1]] and pricing[1]>= grid[start[0]][start[1]] :
             ans_list.append(start)
+        if len(ans_list)==k:
+            return ans_list
         cache_set.add("{}-{}".format(start[0],start[1]))
         while priority_queue:
             tmp_list=[]
