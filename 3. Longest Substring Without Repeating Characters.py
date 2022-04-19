@@ -5,6 +5,7 @@ class Solution:
         left_index=0
         right_index=0
         alphabet_index={}
+        
         while right_index<len(s):
             if s[right_index] in alphabet_index.keys():
                 origin_index=alphabet_index[s[right_index]]
