@@ -1,7 +1,7 @@
 from cmath import cos
 from typing import List 
 class Solution:
-    def minimumCost(self, cost: List[int]) -> int:
+    def minimumCost_mine(self, cost: List[int]) -> int:
         # 贪心算法
         cost.sort(reverse=True)#排序降序
         i=0
@@ -15,6 +15,14 @@ class Solution:
             i+=1
         if i<len(cost):
             ans+=cost[i]
+        return ans 
+    def minimumCost(self, cost: List[int]) -> int:
+        # 贪心算法,取模运算
+        cost.sort(reverse=True)#排序降序
+        ans=0 
+        for index,num in enumerate(cost,1):
+            if index%3!=0:
+                ans+=num
         return ans 
 
 if __name__=="__main__":
