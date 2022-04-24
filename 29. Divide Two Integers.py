@@ -13,15 +13,12 @@ class Solution:
         divisor=abs(divisor)
         if dividend==0 or dividend< divisor:
             return 0
-
         register_sum=0
-        register_ans=0
         ans=0
         add_num=divisor
         divisor_count=1
         while register_sum<dividend :
             register_sum+=add_num
-            register_ans=ans 
             ans+=divisor_count
             if register_sum>dividend : 
                 if add_num==divisor:
@@ -34,8 +31,6 @@ class Solution:
             else:
                 add_num=add_num+add_num
                 divisor_count=divisor_count+divisor_count
-
-
         if register_sum==dividend:
             if negitive_flag:
                 return max(-ans,min_num)
