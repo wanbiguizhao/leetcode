@@ -14,7 +14,7 @@ class Solution:
         state_C=False
         for index,x in enumerate(s):
             if state_A:
-                if x in ["+",'-']:
+                if x =="+" or x  =="-":
                     state_A=False
                     state_B=True
                     beg_index=index
@@ -41,18 +41,18 @@ class Solution:
                     break
         
         ans=0
-        pre_ans=ans
         if not state_C:
             return ans 
         add_flag= -1 if s[beg_index]=='-' else 1  
-        if s[beg_index] in ["+","-"]:
+        if s[beg_index] =="+" or s[beg_index]  =="-":
             beg_index+=1
         while beg_index<=end_index:
-            pre_ans=ans
             ans= ans*10 + add_flag*int(s[beg_index])
             beg_index+=1
-            if ans > max_num or ans < min_num:
-                return pre_ans 
+            if ans > max_num :
+                return max_num
+            elif ans < min_num:
+                return min_num
         return ans 
 
 if __name__ == "__main__":
