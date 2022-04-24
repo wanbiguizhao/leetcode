@@ -27,17 +27,13 @@ class Solution:
         best_start=0
         dp=[0]*len(auxiliary_s)
         for index,alphabet in enumerate(auxiliary_s):
-            if index>=9:
-                print(index,alphabet,mirror_index,center_index,index)
             mirror_index=2*center_index-index
-            print(index,alphabet,mirror_index,center_index,index)
             r=0
             if  max_right_index>index:
                 mirror_index=2*center_index-index
                 if mirror_index>0:
                     r=dp[mirror_index]
-                if index<max_right_index:
-                    r=min(r,max_right_index-index)
+                r=min(r,max_right_index-index)
             # 搜索一下
             left_index=index-r
             right_index=index+r
