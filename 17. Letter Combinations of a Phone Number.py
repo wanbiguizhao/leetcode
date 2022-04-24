@@ -18,6 +18,7 @@ class Solution:
             "5":"jkl",
             "6":"mno",
             "7":"pqrs",
+            "8":"tuv",
             "9":"wxyz"
         }
         const_digits_len=len(digits)

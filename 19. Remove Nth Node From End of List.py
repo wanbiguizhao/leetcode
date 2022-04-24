@@ -7,6 +7,8 @@ class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         # 先走n步，然后进行计算
         # 使用一个辅助节点比较容易计算。
+        # 返回辅助节点的next
+        # 测试用例  [1,2,3] 1    [1,2,3] 2 , [1] 
         add_head=ListNode()
         add_head.next=head # 新增加一个辅助节点
         current_node=add_head
