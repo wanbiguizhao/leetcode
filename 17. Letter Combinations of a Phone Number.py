@@ -2,13 +2,13 @@ from typing import List
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
        
-        def _letter_combinations(digits_index,state_list):
+        def _letter_combinations(digits_index,pre_str):
             if digits_index==const_digits_len:
-                ans.append( "".join([state_list[x]  for x in range(const_digits_len) ]))
+                ans.append(pre_str)
                 return 
             number_value=digits[digits_index]
             for letter in mapping_info[number_value]:
-                _letter_combinations(digits_index+1,state_list+[letter])
+                _letter_combinations(digits_index+1,pre_str+letter)
         if not digits:
            return []
         mapping_info={
@@ -22,9 +22,10 @@ class Solution:
         }
         const_digits_len=len(digits)
         ans=[]
-        _letter_combinations(0,[])
+        _letter_combinations(0,"")
         return ans 
 if __name__ == "__main__":
     instance = Solution()
     print(instance.letterCombinations(""))
+    print(instance.letterCombinations("2433"))
 
