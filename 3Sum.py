@@ -2,6 +2,7 @@ from typing import List
 from xmlrpc.client import TRANSPORT_ERROR
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # 自己一直有，左边固定，右边固定，然后从中间开始找的想法
         if len(nums)<2:
             return []
         nums.sort()
