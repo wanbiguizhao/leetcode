@@ -14,6 +14,7 @@ class Solution:
         _permute(nums,[])
         return ans 
     def permute(self, nums: List[int]) -> List[List[int]]:
+        # https://www.youtube.com/watch?v=w4SjNXKLsv4
         def _permute(pre_ans:list):
             if len(pre_ans)==len(nums):
                 ans.append([val for val in pre_ans] )
