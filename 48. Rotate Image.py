@@ -1,6 +1,4 @@
 from typing import List
-
-from matplotlib.pyplot import margins 
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
         """
@@ -12,9 +10,11 @@ class Solution:
             for cj in range(ri+1,const_n):
                 # 上三角折一下
                 matrix[ri][cj],matrix[cj][ri]=matrix[cj][ri],matrix[ri][cj]
-        for ri in range(0,const_n//2):
-            for cj in range(const_n):
-                matrix[ri][cj],matrix[const_n-ri-1][cj]=matrix[const_n-ri-1][cj],matrix[ri][cj]
+        # 沿着竖直方向进行对折
+        for ri in range(const_n):
+            for cj in range(0,const_n//2):
+                matrix[ri][cj],matrix[ri][const_n- cj-1]=matrix[ri][const_n- cj-1],matrix[ri][cj]
+        return matrix 
 
 
         
