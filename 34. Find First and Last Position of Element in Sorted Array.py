@@ -1,4 +1,3 @@
-from turtle import right
 from typing import List
 class Solution:
     def searchRange_2(self, nums: List[int], target: int) -> List[int]:
@@ -23,6 +22,7 @@ class Solution:
                 left_index=mid_index+1
         return [-1,-1]
     def searchRange(self, nums: List[int], target: int) -> List[int]:
+        # 二分边界搜索。
         def findLowBound(nums,target):
             left=0
             right=len(nums)
