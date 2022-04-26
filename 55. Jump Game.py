@@ -23,19 +23,13 @@ class Solution:
         return nums[0]
     def canJump(self, nums: List[int]) -> bool:
         const_len=len(nums)
-        jump_reached=[False]*const_len
-        jump_reached[-1]=True
-        for index in reversed(range(0,const_len-1)):
-            max_jump=nums[index]+index
-            if max_jump>=const_len-1:
-                jump_reached[index]=True
-                continue 
-            while max_jump>index:
-                if jump_reached[max_jump]:
-                    jump_reached[index]=True
-                    break
-                max_jump-=1
-        return jump_reached[0]
+        last_position=const_len-1
+        for index in range(const_len-2,-1,-1):
+            if index+nums[index]>=last_position:
+                last_position=index
+        return last_position==0
+
+        
 
 
 if __name__ == "__main__":
