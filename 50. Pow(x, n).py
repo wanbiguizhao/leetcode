@@ -1,4 +1,4 @@
-from socket import errorTab
+
 
 
 class Solution:
@@ -17,12 +17,12 @@ class Solution:
         multiply_n=1 # 记录每次递增的变量n
         current_n=1 # 
         while current_n<n:
-            if current_n+multiply_n<n: # 迈大步
+            if current_n+multiply_n<n: # 迈大步，步长翻倍
                 ans=ans*multiply_value
                 current_n=current_n+multiply_n
                 multiply_n=multiply_n*2
                 multiply_value=multiply_value*multiply_value
-            else: # 回退到最小的不长
+            else: # 回退到最小的步长
                 multiply_n=1
                 multiply_value=x 
                 ans=ans*multiply_value

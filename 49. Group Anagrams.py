@@ -14,7 +14,6 @@ class Solution:
             record_index_info[key_pre].append(one_str)
         return [rec for rec in record_index_info.values() ]
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        ans=[]
         record_index_info=defaultdict(lambda:[])
         for one_str in strs:
             key_pre="".join(sorted(one_str))
