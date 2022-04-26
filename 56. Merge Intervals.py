@@ -1,6 +1,7 @@
 from typing import List 
 class Solution:
     def merge_bad(self, intervals: List[List[int]]) -> List[List[int]]:
+        # 双指针
         new_intervals=sorted(intervals)
         ans=[]
         index_i=index_j=0
@@ -28,9 +29,7 @@ class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         new_intervals=sorted(intervals)
         ans=[]
-        index_i=index_j=0
         const_len=len(intervals)
-        max_right=new_intervals[index_j][1]
         while index_j<const_len:
             if not ans or ans[-1][1] < new_intervals[index_j][0]: 
                 ans.append(
