@@ -42,7 +42,7 @@ class Solution:
         ans=[]
         i,j=0,0
         direction_index=0
-        while check(i,j):
+        while True:
             ans.append(matrix[i][j])
             matrix[i][j]="*"
             direction=directions[direction_index]
@@ -52,6 +52,8 @@ class Solution:
                 direction_index=(direction_index+1)%4 # 换一个方向走。
                 direction=directions[direction_index]
                 i,j=i+direction[0],j+direction[1]
+                if not check(i,j):
+                    break 
         return ans 
 
 
