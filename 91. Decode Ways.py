@@ -30,7 +30,7 @@ class Solution:
             mapping[chr(x+ord('A'))]=str(x+1)
             mapping[str(x+1)]=chr(x+ord('A'))
         return _numDecodings(s)
-    def numDecodings(self, s: str) -> int:
+    def numDecodings_2(self, s: str) -> int:
         def _numDecodings(s):
             if s in memory:
                 return memory[s]
@@ -59,7 +59,28 @@ class Solution:
         memory['']=0
         memory['0']=0
         return _numDecodings(s)
-        
+    def numDecodings(self, s: str) -> int:
+        def _numDecodings(i_th):
+            if i_th in cache:
+                return cache[i_th]
+            if i_th>=len(s):
+
+                return 1
+            
+            if s[i_th]=="0":
+                cache[i_th]=0   
+                return cache[i_th]
+            res=0
+            if i_th+1<len(s) and int(s[i_th:i_th+2])>=0 and  int(s[i_th:i_th+2])<=26:
+                res=_numDecodings(i_th+1)+_numDecodings(i_th+2)
+            else:
+                res=_numDecodings(i_th+1)
+            cache[i_th]=res
+            return cache[i_th]
+        cache={}
+        return _numDecodings(0)
+
+
 if __name__ == "__main__":
     instance=Solution()
     print(instance.numDecodings("06"),
@@ -67,9 +88,10 @@ if __name__ == "__main__":
     instance.numDecodings("12"),
     instance.numDecodings("1122"),
     instance.numDecodings("626"),
-    instance.numDecodings("111111111111111111111111111111111111111111111"),
-    instance.numDecodings_1("111111111111111111111111111111111111111111111"),
+    instance.numDecodings("1111111111111111111111111111111111111111111112"),
+    instance.numDecodings_1("1111111111111111111111111111111111111111111112"),
     instance.numDecodings_1("230"),
-    instance.numDecodings("230")
+    instance.numDecodings("230"),
+    instance.numDecodings("231111111111111111111111111111111111111111")
     )
         
