@@ -1,13 +1,15 @@
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         # 数学题  m+n ，选择走m步之后，n步就确认了。
-        # C (m+n) m
+        # C (m+n)  不是数学问题，为啥我原来记的是数学问题？
         # dp 题 问题可以转化为dp(m,n)=dp(m-1,n)+dp(m,n-1)
         def grid_traveller(m,n):
             if m==1 or n==1:
                 return 1 
             if m==0 or n==0:
                 return 0 
+            if (m,n) in memory:
+                return memory[(m,n)]
             memory[(m,n)]=grid_traveller(m-1,n)+grid_traveller(m,n-1)
             return memory[(m,n)]
         memory={}
