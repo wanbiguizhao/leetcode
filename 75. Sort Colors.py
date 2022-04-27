@@ -1,4 +1,3 @@
-from turtle import left
 from typing import List 
 class Solution:
     def sortColors_1(self, nums: List[int]) -> None:
