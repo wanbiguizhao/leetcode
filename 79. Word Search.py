@@ -20,7 +20,7 @@ class Solution:
         memory={}
         for i in range(const_m):
             for j in range(const_n):
-                memory[(i,j)]=False
+                memory[(i,j)]=False # The same letter cell may not be used more than once.
         for i in range(const_m):
             for j in range(const_n):
                 if board[i][j]==word[0]:
