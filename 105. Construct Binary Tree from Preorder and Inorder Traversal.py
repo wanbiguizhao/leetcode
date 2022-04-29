@@ -46,7 +46,7 @@ class Solution:
                 return root_node
         return _buildTree(0,len(preorder)-1,0,len(inorder)-1)
 
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+    def buildTree_3(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         # 使用缓存的idx的方法，减少inorder.index(root_node_val)时间开销
         def _buildTree(preorder_left,preorder_right,inorder_left,inorder_right):
             if preorder_left>preorder_right:
@@ -56,7 +56,7 @@ class Solution:
             else:
                 # 22:30 开始尝试使用新的方法，现在23:26了，该开始花了半个小时，被打断一下一个小时过去了。
                 root_node_val=preorder[preorder_left]
-                root_node_index_inorder=inorder.index(root_node_val)
+                root_node_index_inorder=idx_mapping_inorder[root_node_val]
                 left_tree_len=root_node_index_inorder-inorder_left
                 root_node=TreeNode(val=root_node_val)
                 root_node.left=_buildTree(
@@ -72,4 +72,33 @@ class Solution:
                     inorder_right
                 )
                 return root_node
+        idx_mapping_inorder={value:index for index,value in enumerate(inorder)}
+        return _buildTree(0,len(preorder)-1,0,len(inorder)-1)
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        # 使用缓存的idx的方法，减少inorder.index(root_node_val)时间开销
+        # 去掉preorder的left和right 边界确认计算工作。
+        def _buildTree(preorder_left,inorder_left,inorder_right):
+            if inorder_left>inorder_right:
+                return None 
+            elif inorder_left==inorder_right:
+                return TreeNode(val=preorder[preorder_left])
+            else:
+                # 22:30 开始尝试使用新的方法，现在23:26了，该开始花了半个小时，被打断一下一个小时过去了。
+                root_node_val=preorder[preorder_left]
+                root_node_index_inorder=idx_mapping_inorder[root_node_val]
+                left_tree_len=root_node_index_inorder-inorder_left
+                root_node=TreeNode(val=root_node_val)
+                root_node.left=_buildTree(
+                                        preorder_left+1,
+                                        preorder_left+1+left_tree_len-1,
+                                        inorder_left,
+                                        root_node_index_inorder-1,
+                                        )
+                root_node.right=_buildTree(
+                    preorder_left+1+left_tree_len,
+                    root_node_index_inorder+1,
+                    inorder_right
+                )
+                return root_node
+        idx_mapping_inorder={value:index for index,value in enumerate(inorder)}
         return _buildTree(0,len(preorder)-1,0,len(inorder)-1)
