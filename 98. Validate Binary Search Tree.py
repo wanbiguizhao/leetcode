@@ -54,3 +54,7 @@ class Solution1:
                 node_stack.pop(-1)
                 node_stack.append(root.val)
         self.mid_order(root.right,node_stack)
+
+# 使用pop的方式，的确比使用对象指针的方式效率低。
+# 中序遍历，当前节点要比上一个节点大。 ==的情况属于错
+# 
