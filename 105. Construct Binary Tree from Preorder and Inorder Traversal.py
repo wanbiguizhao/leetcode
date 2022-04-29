@@ -1,6 +1,5 @@
 # Definition for a binary tree node.
-from logging import root
-from pickletools import read_uint8
+
 from typing import Optional ,List 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -90,7 +89,6 @@ class Solution:
                 root_node=TreeNode(val=root_node_val)
                 root_node.left=_buildTree(
                                         preorder_left+1,
-                                        preorder_left+1+left_tree_len-1,
                                         inorder_left,
                                         root_node_index_inorder-1,
                                         )
@@ -101,4 +99,4 @@ class Solution:
                 )
                 return root_node
         idx_mapping_inorder={value:index for index,value in enumerate(inorder)}
-        return _buildTree(0,len(preorder)-1,0,len(inorder)-1)
+        return _buildTree(0,0,len(inorder)-1)

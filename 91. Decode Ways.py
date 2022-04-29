@@ -64,13 +64,13 @@ class Solution:
             if i_th in cache:
                 return cache[i_th]
             if i_th>=len(s):
-
                 return 1
             
             if s[i_th]=="0":
                 cache[i_th]=0   
                 return cache[i_th]
             res=0
+            # ac 91 使用下标 做索引 和数学认证  避免字符串的拆分
             if i_th+1<len(s) and int(s[i_th:i_th+2])>=0 and  int(s[i_th:i_th+2])<=26:
                 res=_numDecodings(i_th+1)+_numDecodings(i_th+2)
             else:
