@@ -27,7 +27,8 @@ class Solution:
                         index+=1
                 if ans!=-1:
                     return ans
-            start_index+=1
+            else:
+                start_index+=1
         return len(gas)-1
         
 if __name__ == "__main__":
