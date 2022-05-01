@@ -14,6 +14,7 @@ class Solution:
         # s[i,j] 是否是回文。
         # s[0,j] 中包含的回文类型
         #palindrome_cache={} # s[i,j] 是否是回文
+        # 应该使用的是回溯法。下次试一下dp吧
         pre_ans_cache={} # s[0,k]包含的所有的回文结果
         pre_ans_cache[-1]=[[]]
         # 自底向上构建

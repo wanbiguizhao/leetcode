@@ -17,7 +17,7 @@ class Solution:
                 # 是的话，bingo
                 index=start_index+1
                 rest_gas=sub_list[start_index]
-                while index<len(sub_list):
+                while index<len(sub_list)+start_index:
                     rest_gas+=sub_list[index%len(sub_list)]
                     if rest_gas<0:
                         start_index=index+1
@@ -28,7 +28,9 @@ class Solution:
                 if ans!=-1:
                     return ans
             start_index+=1
+        return len(gas)-1
         
 if __name__ == "__main__":
     instance=Solution()
-    instance.canCompleteCircuit(gas = [1,2,3,4,5], cost = [3,4,5,1,2])
+    #instance.canCompleteCircuit(gas = [1,2,3,4,5], cost = [3,4,5,1,2])
+    instance.canCompleteCircuit(gas =[5,5,1,3,4], cost = [8,1,7,1,1])
