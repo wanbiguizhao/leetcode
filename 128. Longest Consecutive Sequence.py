@@ -1,7 +1,7 @@
 from typing import  List
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
-        ans=1
+    def longestConsecutive_1(self, nums: List[int]) -> int:
+        ans=0
         dict_suffix_len={num:1 for num in nums}
         for num in nums:
             if dict_suffix_len[num]==1: 
@@ -21,6 +21,9 @@ class Solution:
                     next_num-=1
             ans=max(dict_suffix_len[num],ans)
         return ans 
+    def longestConsecutive(self, nums: List[int]) -> int:
+        # 通过集合，先找到nums中连续区域最小的区域。
+
             
                         
 if __name__ == "__main__":
