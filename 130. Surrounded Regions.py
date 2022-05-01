@@ -12,7 +12,7 @@ class Solution:
         """   
         def check(i,j):
             #return i>=0 and i<const_m and j>=0 and j< const_n and not helper_board[i][j] and board[i][j]=="O"  
-            return i>0 and i<const_m-1 and j>0 and j< const_n-1 and not helper_board[i][j] and board[i][j]=="O" # 按理说这个判断的更少一点
+            return i>0 and i<const_m-1 and j>0 and j< const_n-1 and not helper_board[i][j] and board[i][j]=="O" # 按理说这个判断的更少一点，但是时间反而更长了
         const_m=len(board)
         const_n=len(board[0])
         helper_board=[[ False  for j in range(const_n)]for i in range(const_m) ]
