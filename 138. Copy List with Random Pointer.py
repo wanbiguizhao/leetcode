@@ -45,7 +45,6 @@ class Solution:
         origin_pointer=head 
         cp_pointer=copy_head
         while origin_pointer!=None:
-
             cp_pointer.next=get_clone_node(origin_pointer)
             cp_pointer=cp_pointer.next
             cp_pointer.random=get_clone_node(origin_pointer.random)
