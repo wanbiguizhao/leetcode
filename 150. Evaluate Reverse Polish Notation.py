@@ -1,7 +1,7 @@
 from typing import List
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
-        def calculate(a,b,token):
+        def calculate(a,b,token): # 内部定义函数速度更快
             if token=="+":
                 return a+b
             elif token=='-':
@@ -12,7 +12,7 @@ class Solution:
                 # if a*b<0:
                 #     a=abs(a)
                 #     b=abs(b)
-                return int(a/b) # this is 向零取整
+                return int(a/b) # this is 向零取整 int，  round 四舍五入  ceil 向下取整， floor 是向上取整, int 是向零取整
                 # import math 
                 # math.in
         result_stack=[]
@@ -25,7 +25,7 @@ class Solution:
             else:
                 num=int(token)
                 result_stack.append(num)
-        print(result_stack[0])
+        #print(result_stack[0])
         return result_stack[0]
 if __name__ == "__main__":
     instance=Solution()
