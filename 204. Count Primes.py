@@ -22,6 +22,21 @@ class Solution:
                 ans+=1
         #print(ans)
         return ans 
+    def countPrimes(self, n: int) -> int:
+        is_primes=[True]*(n)
+        for x in range(2,n):# 其实要看n-1
+            if not is_primes[x]:# 不是素数就pass
+                continue
+            #y=x*x 
+            for y in range(x*x,n,x): # 替代while的方法，也不是特别高效。
+                is_primes[y]=False # 知道素数
+                 
+        ans=0
+        for x in range(2,n):
+            if is_primes[x]:
+                ans+=1
+        #print(ans)
+        return ans 
 
 if __name__=="__main__":
     instance=Solution()
