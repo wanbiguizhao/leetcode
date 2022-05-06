@@ -24,6 +24,8 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         单独循环移动移动法
+        每次移动，看成有若干个圈，
+        https://zhuanlan.zhihu.com/p/143521482
         """
         k=k%len(nums) 
         if k==0:
@@ -39,7 +41,7 @@ class Solution:
                 tmp_val,nums[next_index]=nums[next_index],tmp_val
                 move_step+=1
                 current_index=next_index
-                if current_index==next_index:
+                if current_index==beg_index:
                     beg_index+=1
                     break
 
