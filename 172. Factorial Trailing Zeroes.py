@@ -35,7 +35,15 @@ class Solution:
             res+=n//divid_num
             return res 
         ans=reduce(zeroes_helper,divide_list)
-        print(ans)
+        #print(ans)
+        return ans 
+    def trailingZeroes(self, n: int) -> int:
+        # 尝试使用reduce，这个的效率不如使用reduce  
+        ans=0
+        divide_list=[5,5**2,5**3,5**4,5**5,5**6]
+        for divide in divide_list:
+            ans+=n//divide
+        #print(ans)
         return ans 
 if __name__ == "__main__":
     instance=Solution()
