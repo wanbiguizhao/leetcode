@@ -3,7 +3,8 @@ class Trie:
 
     def __init__(self):
         self.core_dict={"$":False}
-        # 通过"$" 区分前缀树的问题。
+        # 通过"$" 区分前缀还是单词
+        # 使用字典作为树的存储。
         
 
     def insert(self, word: str) -> None:
