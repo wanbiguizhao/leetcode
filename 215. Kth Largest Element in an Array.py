@@ -28,7 +28,7 @@ Next challenges:
                     nums[l],nums[r]=nums[r],nums[l]
                     l+=1
                     r-=1
-                if nums[l]>=pivot:
+                if nums[l]>=pivot: #=非常重要
                     l+=1
                 if nums[r]<=pivot:
                     r-=1
