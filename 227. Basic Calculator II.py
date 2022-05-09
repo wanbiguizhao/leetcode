@@ -17,11 +17,13 @@ class Solution:
         num_stack=[]
         siginal_stack=[]
         siginal_set=set(["+","/","-","*"])
-        for x in s:
+        beg_index=0
+        for index,x in enumerate(s):
             if x in siginal_set:
                 siginal_stack.append(x)
-            else:
-                num_stack.append(int(x))
+                num_stack.append(int(s[beg_index:index]))
+                beg_index=index+1
+        num_stack.append(int(s[beg_index:]))
         while  siginal_stack:
             operate_symbol=siginal_stack.pop()
             b=num_stack.pop()

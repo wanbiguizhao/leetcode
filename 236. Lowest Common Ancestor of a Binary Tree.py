@@ -15,7 +15,21 @@ class Solution:
         self._get_lowest_ancestor(root,p,q)
         return self.ans
     def _get_lowest_ancestor(self,root:'TreeNode',p:'TreeNode',q:'TreeNode'):
+        # 使用数学计数的方法进行判断
+        if not root:
+            return 0
 
         left= self._get_lowest_ancestor(root.left,p,q)
         right=self._get_lowest_ancestor(root.right,p,q)
-        if root.val     
+        mid=0
+        if root.val==p.val or root.val==q.val:
+            mid=1
+        if mid+left+right>=2:
+            self.ans=root 
+            return 0
+        else:
+            return mid+left+right
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        # 反转指针法
+        self.ans=None 
+        pass 
