@@ -34,7 +34,7 @@ class Solution:
         zero_list=[couserid for couserid, indegree in  indegree_dict.items() if indegree==0 ]
         left_index=0
         right_index=len(zero_list)-1
-        while left_index<=right_index:
+        while left_index<=right_index: # 替代了15行判断是否有新的节点加入，双指针方法
             couserid=zero_list[left_index]
             left_index+=1
             #ans.append(couserid)

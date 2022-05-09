@@ -6,21 +6,22 @@ class TreeNode:
         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        def _kth(root,k):
-            if self.stop:
-                return 
+        # 递归方式
+        # 找到停止递归的方法。
+        def _kth(root):
             if root.left:
-                self.kthSmallest(root.left,k)
+                _kth(root.left)
             if self.stop:
                 return
-            k-=1
-            if k==0:
+            self.k-=1
+            if self.k==0:
                 self.ans=root.val
                 self.stop=True
                 return 
             if root.right:
-                self.kthSmallest(root.right,k)
+                _kth(root.right)
         self.ans=0
         self.stop=False
-        _kth(root,k)
-
+        self.k=k
+        _kth(root)
+        return self.ans

@@ -44,3 +44,17 @@ Next challenges:
                 right=pos-1
             else:
                 left=pos+1
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        # 使用快排
+        """
+        使用堆排序试一下
+        """
+        import heapq
+        head_list=[]
+        for num in nums:
+            heapq.heappush(head_list,num) 
+            if len(head_list)>k:
+                heapq.heappop(head_list)
+        
+        return head_list[0]
+
