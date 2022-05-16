@@ -3,7 +3,7 @@ from typing import List
 from sklearn import tree,
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
-        dp=[] # 使用三个空间复杂度的代码
+        dp=[num] # 使用三个空间复杂度的代码
         for num in nums:
             if not dp :
                 dp.append(num)
