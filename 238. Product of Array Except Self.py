@@ -10,7 +10,7 @@ class Solution:
         for index in range(len(nums)-2,-1,-1):
             right_fix=right_fix*nums[index+1]
             ans[index]=ans[index]*right_fix
-        print(ans)
+        #print(ans)
         return ans 
 if __name__ == "__main__":
     instance=Solution()
