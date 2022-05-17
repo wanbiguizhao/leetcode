@@ -1,6 +1,6 @@
 from typing import List
 
-from sklearn import tree,
+
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
         dp=[num] # 使用三个空间复杂度的代码
@@ -43,4 +43,20 @@ class Solution:
                     dp[-1]=nums[index]
         return False
             
-                    
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        
+        i = float("inf")
+        j = float("inf")
+        
+        for n in nums:
+            
+            if n <= i:
+                i = n
+                
+            elif n <= j:
+                j = n
+                
+            elif i != float("inf") and j != float("inf"):
+                return True
+            
+        return False
