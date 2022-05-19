@@ -17,7 +17,8 @@ class Solution:
                 beg = mid + 1
             else:
                 end = mid
-                
+        a=[]
+        
         return beg
     def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])  # For general, the matrix need not be a square

@@ -25,7 +25,7 @@ class Solution:
             beg_index=end_index
             ans_list.append([v_len,val])
         ans_list.sort(reverse=True)
-        print([val for count,val in  ans_list[:k]])
+        #print([val for count,val in  ans_list[:k]])
         return [val for count,val in  ans_list[:k]]
 
 
