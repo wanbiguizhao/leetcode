@@ -6,6 +6,8 @@ class Solution:
         if len(s)<k:
             return 0 
         alphabet_count=Counter(s)
+        if max(alphabet_count.values())<k:
+            return 0 # 避免无效的查询
         ans=0
         beg_index=0
         for index,chr in enumerate(s):
@@ -14,8 +16,8 @@ class Solution:
                 beg_index=index+1
         
         if beg_index==0:
-            return len(s)
-        return max(ans,self.longestSubstring(s[beg_index:],k) )
+            return len(s) # 可能存在整个字符串都是满足条件的情况。
+        return max(ans,self.longestSubstring(s[beg_index:],k) ) # 避免死循环。
 
 if __name__ == "__main__":
     instance=Solution()
