@@ -121,7 +121,78 @@ class Solution:
                 visited[x][y]=0
         print(ans_list)
         return ans_list
-        
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        # 尝试使用trie前缀树进行缓存。
+        # 使用集合运算，提升速度
+        def getNeighbourCooridate(x,y):
+            directions=[
+                [0,1],
+                [1,0],
+                [0,-1],
+                [-1,0]
+            ]
+            for direct in directions:
+                xd,yd=x+direct[0],y+direct[1]
+                if xd>=0 and xd<const_m and yd>=0 and yd<const_n  and visited[xd][yd]==0:# 这个要做一个某个字母是否已经用过了。
+                    yield (xd,yd)
+        def dfs(spaceDataDict:dict,prefix,conditionCoordinateList):
+            """_summary_
+
+            Args:
+                spaceDataDict (_type_): 搜索空间，基于字典构造的树
+                prefix (_type_): 已经搜索的前缀字符
+                conditionCoordinateList (_type_): 约束条件，当前搜索的字母的坐标必须在conditionCoordinateList中。
+
+            Returns:
+                _type_: _description_
+            """
+            if spaceDataDict["$"]==True:
+                ans_list.append(prefix)# 表示已经搜索到一个完整的单词了。
+                tree_root.disable(prefix) # 在Tire中逻辑删除prefix的痕迹。
+                spaceDataDict["$"]=False# 这个单词可以不再进行匹配了，但是还是会被搜索。
+            #     spaceDataDict["word_count"]-=1
+            # if spaceDataDict["word_count"]==0:
+            #     return # 这个单词已经搜索过了并且没有前缀是该单词的前缀了。
+            for xchar,subSpaceDataDict in spaceDataDict.items():
+                if xchar=="$" or xchar=="word_count":
+                    continue # 特殊情况
+                for (x,y) in coordinate_cache[xchar] & conditionCoordinateList :# 求两个条件的交集
+                    if subSpaceDataDict["word_count"]==0:
+                        # xchar 还对应的没有找到word的个数。
+                        continue 
+                    if visited[x][y]==1:
+                        continue # 已经访问过了跳过
+                    # if (x,y) in conditionCoordinateList: # 是否符合conditionCoordinateList的约束条件
+                    #     # 当然会有一些重复搜索的问题在里面，例如整个矩阵中，存在两个以上的方案，可以找到到eats，其中一个eats找到之后，没有办法阻止继续搜索eats的结果。
+                    #     # 这个时候就要找到(x,y)的邻居点作为新的conditionCoordinateList
+                    newConditionCoordinateList=set(getNeighbourCooridate(x,y))
+                    visited[x][y]=1
+                    dfs(subSpaceDataDict,prefix+xchar,newConditionCoordinateList)
+                    visited[x][y]=0
+        tree_root=Trie()
+        for word in words:
+            # 构建前缀树
+            tree_root.insert(word)
+        coordinate_cache=defaultdict(set)
+        const_m,const_n=len(board),len(board[0])
+        visited=[ ]# 比set效率高，记录哪些字典被访问了。
+        for m in range(const_m):
+            visited.append([])
+            for n in range(const_n):
+                coordinate_cache[board[m][n]].add((m,n))
+                visited[m].append(0)
+        ans_list=[]
+        for xchar,subSpaceDataDict in tree_root.core_dict.items():
+            if xchar=="$":
+                continue 
+            for (x,y) in coordinate_cache[xchar]:
+                visited[x][y]=1
+                conditionCoordinateList=set(getNeighbourCooridate(x,y))
+                dfs(subSpaceDataDict,xchar,conditionCoordinateList)
+                visited[x][y]=0
+        print(ans_list)
+        return ans_list
+              
 
 
 class Trie:
