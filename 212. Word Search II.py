@@ -151,8 +151,8 @@ class Solution:
                 tree_root.disable(prefix) # 在Tire中逻辑删除prefix的痕迹。
                 spaceDataDict["$"]=False# 这个单词可以不再进行匹配了，但是还是会被搜索。
             #     spaceDataDict["word_count"]-=1
-            # if spaceDataDict["word_count"]==0:
-            #     return # 这个单词已经搜索过了并且没有前缀是该单词的前缀了。
+            if spaceDataDict["word_count"]==0:
+                return # 这个单词已经搜索过了并且没有前缀是该单词的前缀了。
             for xchar,subSpaceDataDict in spaceDataDict.items():
                 if xchar=="$" or xchar=="word_count":
                     continue # 特殊情况
@@ -190,10 +190,45 @@ class Solution:
                 conditionCoordinateList=set(getNeighbourCooridate(x,y))
                 dfs(subSpaceDataDict,xchar,conditionCoordinateList)
                 visited[x][y]=0
-        print(ans_list)
+        #print(ans_list)
         return ans_list
               
-
+    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        # 学习的牛逼的代码
+        trie = {}
+        for word in words:
+            node = trie
+            for letter in word:
+                node = node.setdefault(letter, {})
+            node['#'] = word
+        rows = len(board)
+        cols = len(board[0])
+        ans = []
+        
+        def helper(row, col, find):
+            letter = board[row][col]
+            node = find[letter]
+            if '#' in node:
+                ans.append(node['#'])
+                del node['#']
+            board[row][col] = '#'
+            options = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+            for x, y in options:
+                new_x, new_y = row + x, col + y
+                if new_x < 0 or new_x >= rows or new_y < 0 or new_y >= cols:
+                    continue
+                if board[new_x][new_y] not in node:
+                    continue
+                helper(new_x, new_y, node)
+            board[row][col] = letter
+            if not node:
+                del find[letter]# 删除没有必要的字母，在之前可能被删除掉了。
+        
+        for row in range(rows):
+            for col in range(cols):
+                if board[row][col] in trie:
+                    helper(row, col, trie)
+        return ans
 
 class Trie:
     # 考察面向对象和数据结构
