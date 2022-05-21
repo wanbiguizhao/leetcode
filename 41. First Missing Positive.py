@@ -15,7 +15,7 @@ class Solution:
             if left_index<right_index:
                 nums[left_index],nums[right_index]=nums[right_index],nums[left_index]
                 left_index+=1
-                #right_index-=1
+                #right_index-=1 这一步非常重要，试一下这个测试用例[-1,-2,0,2,1]
         # 确保nums[:left_index)都是大于0的正数。
         if nums[left_index]>0:
             left_index+=1
@@ -34,14 +34,14 @@ class Solution:
                 nums[i] = 0
         for i,num in enumerate(nums):
             index = abs(num) - 1
-        if index >=0 and index<len(nums):
-            if nums[index] == 0:
-                num[index] = "-inf"
-            elif nums[index] >0:
-                nums[index]=-nums[index]
-        for index,num in enumerate(num):
-            if num>=0:
-                return index + 1
+            if index >=0 and index<len(nums):
+                if nums[index] == 0:
+                    num[index] = -1 # 这个时候0*-1 是不生效的，只需要表示，index代表的正数时存在的。
+                elif nums[index] >0:
+                    nums[index]=-nums[index]
+            for index,num in enumerate(num):
+                if num>=0:
+                    return index + 1
         return len(nums)+1 
 
 if __name__ == "__main__":
