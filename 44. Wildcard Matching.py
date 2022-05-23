@@ -1,9 +1,10 @@
 
 
 
+from doctest import FAIL_FAST
 import re
 
-
+# 以后一定要考虑重复解的问题。
 class Solution:
     
     def isMatch(self, s: str, p: str) -> bool:
@@ -11,6 +12,7 @@ class Solution:
         # 递归  p[0]==?
         #       p[0]字符串。 
         # 对p进行初始化处理，替换到多余的*
+        # 这个主要的问题在于有很多的重复计算
         def doMatch(s:str,p:str):
             if  s and  p:
                 i=0
@@ -20,8 +22,6 @@ class Solution:
                         return doMatch(s[i:],p[i:])
                 if p[i]=="*":
                     if doMatch(s[i:],p[i+1:]):
-                        return True 
-                    elif doMatch(s[i+1:],p[i+1:]):
                         return True 
                     elif doMatch(s[i+1:],p[i:]):
                         return True 
@@ -88,31 +88,19 @@ class Solution:
         def doMatch(si:int,pi:int):
             if (si,pi) in cache:
                 return cache[(si,pi)]
-            if  s and  p:
-                i=0
-                while  s[i]==p[i]:
-                    i=i+1
-                    if i==len(p) or i ==len(s):
-                        return doMatch(s[i:],p[i:])
-                if p[i]=="*":
-                    if doMatch(s[i:],p[i+1:]):
-                        return True 
-                    elif doMatch(s[i+1:],p[i+1:]):
-                        return True 
-                    elif doMatch(s[i+1:],p[i:]):
-                        return True 
-                    return False 
-                if p[i]=="?":
-                    return doMatch(s[i+1:],p[i+1:])
-                return False 
-            elif  s and not p:
-                return False 
-            elif p and not s:
-                if p[0]=="*":
-                    return doMatch(s,p[1:])
-                return False
-            else:
-                return True  
+            cache[(si,pi)]=False
+            if pi==len(p):
+                return si==len(s)
+            if si<len(s) and (s[si]==p[pi] or p[pi]=='?'):
+                cache[(si,pi)]=doMatch(si+1,pi+1)
+                return cache[(si,pi)]
+            if p[pi]=="*":
+                if doMatch(si,pi+1):
+                    cache[(si,pi)]=True 
+                elif si<len(s) and doMatch(si+1,pi):
+                    cache[(si,pi)]=True 
+                return cache[(si,pi)]
+            return cache[(si,pi)]
 
         new_p="^"
         for x in p:
@@ -122,20 +110,6 @@ class Solution:
                 new_p+=x
         # 需要进行一些减枝条算法
         p=new_p[1:]
-        # i=0
-        
-        # while i<len(p) and i <len(s) and   p[i]!="*" and p[i]!="?":
-        #     if p[i]!=s[i]:
-        #         return False
-        #     i=i+1
-
-        # i=-1
-        # while  i+len(p)>=0 and i+len(s)>=0 and    p[i]!="*" and p[i]!="?":
-        #     if p[i]!=s[i]:
-        #         return False
-        #     i=i-1
-
-        # #p=new_p[1:]
         cache={}
         return doMatch(0,0)
 if __name__ == "__main__":
