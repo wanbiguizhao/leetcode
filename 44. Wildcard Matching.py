@@ -45,24 +45,39 @@ class Solution:
             else:
                 new_p+=x
         # 需要进行一些减枝条算法
-        i=0
         p=new_p[1:]
-        while  p[i]!="*" or p[i]!="?":
+        i=0
+        
+        while i<len(p) and i <len(s) and   p[i]!="*" and p[i]!="?":
             if p[i]!=s[i]:
                 return False
             i=i+1
-            if i ==len(s)or i==len(p):
-                break 
+
         i=-1
-        while  p[i]!="*" or p[i]!="?":
+        while  i+len(p)>=0 and i+len(s)>=0 and    p[i]!="*" and p[i]!="?":
             if p[i]!=s[i]:
                 return False
             i=i-1
-            if i+len(s)==0 or i+len(p)==0:
-                break 
+
         #p=new_p[1:]
         return doMatch(s,new_p[1:])
 
+    def isMatch(self, s, p):
+        # dp的办法
+        dp = [[False for _ in range(len(p)+1)] for i in range(len(s)+1)]
+        dp[0][0] = True
+        for j in range(1, len(p)+1):
+            if p[j-1] != '*':
+                break
+            dp[0][j] = True
+                
+        for i in range(1, len(s)+1):
+            for j in range(1, len(p)+1):
+                if p[j-1] in {s[i-1], '?'}:
+                    dp[i][j] = dp[i-1][j-1]
+                elif p[j-1] == '*':
+                    dp[i][j] = dp[i-1][j] or dp[i][j-1]
+        return dp[-1][-1]
 
 if __name__ == "__main__":
     instance=Solution()
