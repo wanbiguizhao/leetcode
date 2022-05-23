@@ -7,7 +7,7 @@ class Solution:
             return True 
         if p and not s:
             if p[0]=="*":
-                return True
+                return self.isMatch(s,p[1:])
             else:
                 return False 
         if s and not p:
