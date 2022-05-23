@@ -90,16 +90,14 @@ class Solution:
                 return cache[(si,pi)]
             cache[(si,pi)]=False
             if pi==len(p):
-                return si==len(s)
-            if si<len(s) and (s[si]==p[pi] or p[pi]=='?'):
+                cache[(si,pi)]= si==len(s)
+            elif si<len(s) and (s[si]==p[pi] or p[pi]=='?'):
                 cache[(si,pi)]=doMatch(si+1,pi+1)
-                return cache[(si,pi)]
-            if p[pi]=="*":
+            elif p[pi]=="*":
                 if doMatch(si,pi+1):
                     cache[(si,pi)]=True 
                 elif si<len(s) and doMatch(si+1,pi):
                     cache[(si,pi)]=True 
-                return cache[(si,pi)]
             return cache[(si,pi)]
 
         new_p="^"
