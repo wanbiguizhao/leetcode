@@ -25,7 +25,6 @@ class Solution:
             while stack and heights[ stack[-1] ]>heights[index]:
                 height_index=stack.pop()
                 height=heights[height_index]
-                
                 ans=max(ans,height*(index-stack[-1]-1))
             stack.append(index)
         return ans 
