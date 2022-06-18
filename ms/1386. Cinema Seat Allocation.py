@@ -54,7 +54,6 @@ class Solution:
                 if col_x>=6 and col_x<=9 and reservedRowSeatsInfo[seatinfo[0]][3]==1:
                     reservedRowSeatsInfo[seatinfo[0]][3]=0
                     reservedRowSeatsInfo[seatinfo[0]][0]-=1
-            reservedRowSeatsInfo[seatinfo[0]] 
         
         ans=(n-len(reservedRowSeatsInfo))*2 # 没有出现的行，可以安排两个。
         for rowState in reservedRowSeatsInfo.values():
