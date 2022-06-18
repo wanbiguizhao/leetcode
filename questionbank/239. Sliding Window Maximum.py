@@ -14,7 +14,7 @@ class Solution:
         for index in range(k,len(nums)):
             num=nums[index]
             if stack and index- stack[0][0]>=k:
-                stack.pop(0)
+                stack.pop(0) # 确保随着窗口的移动，最大的元素可以失效
                 # 出栈了
                 # 会出多个元素的栈吗？
             while stack and stack[-1][1]<num:
