@@ -35,6 +35,34 @@ class Solution:
             else:
                 ans+=judgeFourGroupCount(reservedRowSeatsInfo[i])      
         return ans 
+    def maxNumberOfFamilies(self, n: int, reservedSeats: List[List[int]]) -> int:
+        # 尝试记录每一的保留行的记录
+        reservedRowSeatsInfo=defaultdict(lambda : [3,1,1,1])
+        # 需要变量，保存第i行,[2,3,4,5],[4,5,6,7],[6,7,8,9] 是否可以
+        for seatinfo in reservedSeats:
+            # 
+            if reservedRowSeatsInfo[seatinfo[0]][0]==0:
+                continue
+            else:
+                col_x=seatinfo[1]
+                if col_x>=2 and col_x<=5 and reservedRowSeatsInfo[seatinfo[0]][1]==1:#from2to5==1:
+                    reservedRowSeatsInfo[seatinfo[0]][1]=0
+                    reservedRowSeatsInfo[seatinfo[0]][0]-=1
+                if col_x>=4 and col_x<=7 and reservedRowSeatsInfo[seatinfo[0]][2]==1:
+                    reservedRowSeatsInfo[seatinfo[0]][2]=0
+                    reservedRowSeatsInfo[seatinfo[0]][0]-=1
+                if col_x>=6 and col_x<=9 and reservedRowSeatsInfo[seatinfo[0]][3]==1:
+                    reservedRowSeatsInfo[seatinfo[0]][3]=0
+                    reservedRowSeatsInfo[seatinfo[0]][0]-=1
+            reservedRowSeatsInfo[seatinfo[0]] 
+        
+        ans=(n-len(reservedRowSeatsInfo))*2 # 没有出现的行，可以安排两个。
+        for rowState in reservedRowSeatsInfo.values():
+            if rowState[0]==3:
+                ans+=2
+            elif rowState[0]==2 or rowState[0]==1:
+                ans+=1    
+        return ans 
 if __name__=="__main__":
     instance=Solution()
-    instance.maxNumberOfFamilies( n = 2, reservedSeats = [[1,5],[2,1],[2,10]])
+    instance.maxNumberOfFamilies( n = 2, reservedSeats = [[1,5],[2,8],[2,10],[2,2],[1,6],[1,10],[1,1],[2,5],[1,2]])
