@@ -6,7 +6,7 @@ class DataNode:
         self.value=value
         self.key=key
 class LRUCache:
-
+    # 双链表，哈希
     def __init__(self, capacity: int):
         self.nodeCache={}#defaultdict(DataNode)# key:node
         self.capacity=capacity
@@ -55,7 +55,7 @@ class LRUCache:
                 del tailNode 
             else:
                 self.len+=1 
-                self.nodeCache[key]=node # 增加缓存
+            self.nodeCache[key]=node # 增加缓存
             self.headNode.next.pre=node
             node.next= self.headNode.next
             self.headNode.next,node.pre=node,self.headNode  
