@@ -19,3 +19,6 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 146. LRU Cache
 ## 哈希 
 - 146. LRU Cache
+
+## 图论
+- 1615. Maximal Network Rank
