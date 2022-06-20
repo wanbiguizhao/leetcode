@@ -1,6 +1,16 @@
 from collections import Counter
 class Solution:
     def minDeletions(self, s: str) -> int:
+        """_summary_
+
+        Args:
+            s (str): _description_
+
+        Returns:
+            int: _description_
+        Runtime: 136 ms
+        Memory Usage: 14.9 MB
+        """
         # 采用递归思想，把大问题转换成小问题去进行解决。
         # 预处理问题。
         sCounter=Counter(s)# 记录每个字母对应频率
