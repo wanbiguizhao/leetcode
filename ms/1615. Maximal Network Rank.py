@@ -10,6 +10,8 @@ class Solution:
         
         Runtime: 445 ms, faster than 60.66% of Python3 online submissions for Maximal Network Rank.
         Memory Usage: 15.5 MB, less than 93.53% of Python3 online submissions for Maximal Network Rank.
+
+        # 学习到的是 either city的意思是任何一个城市。 主要学习到的是英语。
         """
         adjMatrix=[False ]*(n*n)# index=i*n+j 
         cityRank=[0]*n 

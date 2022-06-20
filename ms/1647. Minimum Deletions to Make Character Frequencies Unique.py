@@ -10,6 +10,8 @@ class Solution:
             int: _description_
         Runtime: 136 ms
         Memory Usage: 14.9 MB
+
+        
         """
         # 采用递归思想，把大问题转换成小问题去进行解决。
         # 预处理问题。
@@ -29,6 +31,11 @@ class Solution:
                 else:
                     freqCountList.append([numXfreq-1,counter-1])
         return deleteLetterCounter
+
+def testCase_wrong(instance:Solution=Solution()):
+    res=instance.minDeletions("aaabbbcc") # 错误原因freqCountList[-1][0] 搞错下标了
+    print(res,res==2)
+    
 def testCase0(instance:Solution=Solution()):
     # res=instance.reverseWords("    ")
     # print(res,res=="")
@@ -40,9 +47,6 @@ def testCase0(instance:Solution=Solution()):
     print(res,res==3)
     res=instance.minDeletions("aaabbbcccddd")
     print(res,res==6)
-def testCase_wrong(instance:Solution=Solution()):
-    res=instance.minDeletions("aaabbbcc") # 错误原因freqCountList[-1][0] 搞错下标了
-    print(res,res==2)
 if __name__ =="__main__":
     #testCase0()
     #testCase0()
