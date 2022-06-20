@@ -1,0 +1,40 @@
+from collections import Counter
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        # 采用递归思想，把大问题转换成小问题去进行解决。
+        # 预处理问题。
+        sCounter=Counter(s)# 记录每个字母对应频率
+        # 第二次进行计数，记录每个频率对应个个数[[5,3],[4,2]] 表示有三个字母的频率为5，两个字母的频率为4
+        freqCounter=Counter(sCounter.values())
+        freqCountList=sorted([[k,v] for k,v in freqCounter.items()])
+        deleteLetterCounter=0
+        while freqCountList:
+            numXfreq,counter =freqCountList.pop(-1)
+            if numXfreq==0:
+                break 
+            if counter-1>0:
+                deleteLetterCounter+=(counter-1)
+                if freqCountList and freqCountList[-1][0]==numXfreq-1: # 合并
+                    freqCountList[-1][1]+=counter-1
+                else:
+                    freqCountList.append([numXfreq-1,counter-1])
+        return deleteLetterCounter
+def testCase0(instance:Solution=Solution()):
+    # res=instance.reverseWords("    ")
+    # print(res,res=="")
+    # res=instance.reverseWords("    aaa   bb c")
+    # print(res,res=="c bb aaa")
+    res=instance.minDeletions("aaabbc")
+    print(res,res==0)
+    res=instance.minDeletions("aaaaabbbbbccccc")
+    print(res,res==3)
+    res=instance.minDeletions("aaabbbcccddd")
+    print(res,res==6)
+def testCase_wrong(instance:Solution=Solution()):
+    res=instance.minDeletions("aaabbbcc") # 错误原因freqCountList[-1][0] 搞错下标了
+    print(res,res==2)
+if __name__ =="__main__":
+    #testCase0()
+    #testCase0()
+    testCase_wrong()
+        

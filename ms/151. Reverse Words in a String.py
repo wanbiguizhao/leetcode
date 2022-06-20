@@ -15,6 +15,8 @@ class Solution:
 
         Returns:
             str: _description_
+        Runtime: 39 ms, faster than 78.43% of Python3 online submissions for Reverse Words in a String.
+        Memory Usage: 14 MB, less than 47.55% of Python3 online submissions for Reverse Words in a String.
         """        
         constSLength=len(s)
         i=j=0 
@@ -29,8 +31,8 @@ class Solution:
             while index<constSLength and s[index]!=" ":
                 # 填入单词
                 index+=1
-            if i<constSLength:
-                ans_list.append(s[i:index])
+            if i<constSLength: # 边界值检测。
+                ans_list.append(s[i:index]) 
             i=index# i指向第一个空格。
         return " ".join(ans_list[::-1])
 

@@ -14,6 +14,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 ## 贪心算法
 
 - 1405. Longest Happy String
+- 1647. Minimum Deletions to Make Character Frequencies Unique
 
 ## 链表
 - 146. LRU Cache
@@ -22,3 +23,13 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 
 ## 图论
 - 1615. Maximal Network Rank
+
+## 分治法
+- 151. Reverse Words in a String
+
+## 双指针
+- 151. Reverse Words in a String
+
+
+## 递归
+- 1647. Minimum Deletions to Make Character Frequencies Unique
