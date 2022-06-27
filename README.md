@@ -15,7 +15,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 
 - 1405. Longest Happy String
 - 1647. Minimum Deletions to Make Character Frequencies Unique
-
+- 1775. Equal Sum Arrays With Minimum Number of Operations
 ## 链表
 - 146. LRU Cache
 ## 哈希 
@@ -44,5 +44,8 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 17. Letter Combinations of a Phone Number 
 
 ## 看答案会的
-- 588. Design In-Memory File System 主要是处理root中/ 和split（/）,数组跳过“”的问题。
+- 588. Design In-Memory File System 主要是处理root中/ 和split（/）,路径数组跳过""的问题。
+- 1775. Equal Sum Arrays With Minimum Number of Operations 有启发，根据答案修正的bug
+
+## OOD
 - 1775. Equal Sum Arrays With Minimum Number of Operations 
