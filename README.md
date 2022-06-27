@@ -35,5 +35,10 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 ## 递归
 - 1647. Minimum Deletions to Make Character Frequencies Unique 使用了堆栈的数据结构。
 - 151. Reverse Words in a String
+- 200. Number of Islands
 
+
+## 深度优先
+-200. Number of Islands
 ## 看答案会的
+- 588. Design In-Memory File System 主要是处理root中/ 和split（/）,数组跳过“”的问题。

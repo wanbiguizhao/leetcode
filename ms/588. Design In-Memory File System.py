@@ -8,6 +8,8 @@ class FileSystem:
         "children":{},
         "isdDir":"true"
     }
+    Runtime: 126 ms, faster than 7.27% of Python3 online submissions for Design In-Memory File System.
+    Memory Usage: 14.6 MB, less than 22.30% of Python3 online submissions for Design In-Memory File System.
     """
     def __init__(self):
         self.root={
