@@ -19,34 +19,34 @@ class FileSystem:
         
 
     def ls(self, path: str) -> List[str]:
-        if path=="/":
-            return []
-        subPathList=path.split("/")
         currentDir=self.root
-        for onePath in subPathList:
-            currentDir=currentDir["children"][onePath]
-        if currentDir["isdDir"]:
-            return sorted(currentDir["children"].keys())
-        return [currentDir["name"]]
+        if path!="/":
+            subPathList=path.split("/")
+            for onePath in subPathList[1:]:
+                currentDir=currentDir["children"][onePath]
+            if currentDir["isdDir"]:
+                return sorted(currentDir["children"].keys())
+            return [currentDir["name"]]
+        return sorted(currentDir["children"].keys())
 
     def mkdir(self, path: str) -> None:
-        subPathList=path.split("/")
         currentDir=self.root
-        for onePath in subPathList:
-            if onePath  in currentDir["children"]:
-                currentDir=currentDir["children"][onePath]
-            else:
-                currentDir[onePath]["children"]={
+        subPathList=path.split("/")
+        for onePath in subPathList[1:]:
+            if onePath  not in currentDir["children"]:
+                currentDir["children"][onePath]={
                 "name":onePath,
                 "content":"",
                 "children":{},
                 "isdDir":True
-            }
+                }
+            currentDir=currentDir["children"][onePath]
+        
 
     def addContentToFile(self, filePath: str, content: str) -> None:
         subPathList=filePath.split("/")
         currentDir=self.root
-        for onePath in subPathList:
+        for onePath in subPathList[1:]:
             if onePath not in currentDir["children"]:
                 currentDir["children"][onePath]={
                 "name":onePath,
@@ -64,7 +64,7 @@ class FileSystem:
     def readContentFromFile(self, filePath: str) -> str:
         subPathList=filePath.split("/")
         currentDir=self.root
-        for onePath in subPathList:
+        for onePath in subPathList[1:]:
             currentDir=currentDir["children"][onePath]
         return currentDir["content"]
 
@@ -74,6 +74,7 @@ def testCase0(instance:FileSystem=FileSystem()):
     # res=instance.reverseWords("    aaa   bb c")
     # print(res,res=="c bb aaa")
     instance.ls("/")
+    instance.mkdir("/a/b")
     instance.addContentToFile("/a/b/c","a-b-c")
     res=instance.readContentFromFile("/a/b/c")
     instance.addContentToFile("/a/b/d","a-b-c")
