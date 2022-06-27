@@ -47,6 +47,31 @@ class Solution:
                 ps2+=1
                 ans+=1
         return ans 
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        """
+        leetcode的大难
+        """
+        diff = sum(nums1) - sum(nums2)
+        if diff == 0:
+            return 0
+        elif diff < 0:
+            # nums1 is of bigger sum.
+            nums1, nums2 = nums2, nums1
+        # how many points for elements in nums1 can substract.
+        gain1 = [num - 1 for num in nums1]
+        # how many points for elements in nums2 can plus.
+        gain2 = [6 - num for num in nums2]
+        gain = gain1 + gain2
+        gain.sort(reverse = True)
+        
+        res = 0
+        makeup = 0
+        for g in gain:
+            makeup += g
+            res += 1
+            if makeup >= abs(diff):
+                return res
+        return -1
 def testCase0(instance:Solution=Solution()):
     # res=instance.reverseWords("    ")
     # print(res,res=="")
