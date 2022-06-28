@@ -5,6 +5,11 @@ class Solution:
         Do not return anything, modify s in-place instead.
         要提问的问题：s中每个单词被多少个空格区分。
         s中首尾是否包含额外的空格
+        186. Reverse Words in a String II
+
+        Runtime: 308 ms, faster than 58.87% of Python3 online submissions for Reverse Words in a String II.
+        Memory Usage: 18.5 MB, less than 25.51% of Python3 online submissions for Reverse Words in a String II.
+        Next challenges:
         """
         def reversed(i,j):
             while i<j:
