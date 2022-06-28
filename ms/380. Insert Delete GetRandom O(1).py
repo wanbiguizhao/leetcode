@@ -1,4 +1,4 @@
-from random import sample
+from random import sample, randint
 class RandomizedSet:
     """
     Runtime: 1348 ms, faster than 5.00% of Python3 online submissions for Insert Delete GetRandom O(1).
@@ -22,5 +22,16 @@ Memory Usage: 61.3 MB, less than 56.61% of Python3 online submissions for Insert
         
 
     def getRandom(self) -> int:
-        return sample(self.dataSet,1)[0]
+        # 采用方法
+        # 如何实现O(1)
+        
+        index=randint(0,len(self.dataSet)-1)
+        i=0
+        for x in self.dataSet:
+            if i==index:
+                break 
+            i+=1
+
+        return x
+        #return sample(self.dataSet,1)[0]
         
