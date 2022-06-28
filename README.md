@@ -46,6 +46,8 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 ## 看答案会的
 - 588. Design In-Memory File System 主要是处理root中/ 和split（/）,路径数组跳过""的问题。
 - 1775. Equal Sum Arrays With Minimum Number of Operations 有启发，根据答案修正的bug
+- 380. Insert Delete GetRandom O(1)
 
 ## OOD
 - 1775. Equal Sum Arrays With Minimum Number of Operations 
+- 380. Insert Delete GetRandom O(1) 解决方案可以一看，删除方案可以一看。
