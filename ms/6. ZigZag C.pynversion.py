@@ -52,7 +52,7 @@ class Solution:
             directionIndex%=2*(numRows-1)
         ans=""
         for row in range(numRows):
-            ans+="".join(ans_cache.get(row,""))
+            ans+="".join(ans_cache.get(row,""))# 注意异常值处理
         return ans
         
 def testCase0(instance:Solution=Solution()):

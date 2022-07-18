@@ -12,7 +12,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 
 ## 字典
 - 3. Longest Substring Without Repeating Characters
-
+- 6. ZigZag Conversion
 ## 贪心算法
 
 - 1405. Longest Happy String
@@ -23,6 +23,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 2. Add Two Numbers
 ## 数学 
 - 2. Add Two Numbers
+6. ZigZag Conversion #坐标转换。
 ## 哈希 
 - 146. LRU Cache
 
