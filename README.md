@@ -18,6 +18,9 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 1775. Equal Sum Arrays With Minimum Number of Operations
 ## 链表
 - 146. LRU Cache
+- 2. Add Two Numbers
+## 数学 
+- 2. Add Two Numbers
 ## 哈希 
 - 146. LRU Cache
 

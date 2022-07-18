@@ -126,6 +126,10 @@ class InitState(TAGState):
             return ErrorSTate()
         return StartTAGNameState(self.context,["<"])
 class Solution:
+    """
+    Runtime: 73 ms, faster than 5.60% of Python3 online submissions for Tag Validator.
+    Memory Usage: 14.2 MB, less than 16.80% of Python3 online submissions for Tag Validator.
+    """
     def __init__(self) -> None:
         self.stateStack=[]
     def isValid(self, code: str) -> bool:
