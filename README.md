@@ -10,6 +10,8 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 
 - 1405. Longest Happy String
 
+## 字典
+- 3. Longest Substring Without Repeating Characters
 
 ## 贪心算法
 
@@ -34,7 +36,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 ## 双指针
 - 151. Reverse Words in a String
 - 1775. Equal Sum Arrays With Minimum Number of Operations  在两个数组上的双指针。
-
+- 3. Longest Substring Without Repeating Characters
 ## 递归
 - 1647. Minimum Deletions to Make Character Frequencies Unique 使用了堆栈的数据结构。
 - 151. Reverse Words in a String
