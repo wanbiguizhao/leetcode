@@ -33,6 +33,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 ## 分治法
 - 151. Reverse Words in a String
 - 1647. Minimum Deletions to Make Character Frequencies Unique 使用了堆栈的数据结构。
+- 394. Decode String 使用了堆栈的数据结果
 
 ## 双指针
 - 151. Reverse Words in a String
@@ -43,7 +44,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 151. Reverse Words in a String
 - 200. Number of Islands
 - 17. Letter Combinations of a Phone Number
-
+- 394. Decode String
 
 ## 深度优先
 -200. Number of Islands
