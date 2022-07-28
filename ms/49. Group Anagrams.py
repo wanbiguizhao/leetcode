@@ -1,4 +1,4 @@
-from telnetlib import WILL
+from collections import Counter
 from typing import List 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -13,7 +13,18 @@ class Solution:
                 cache[sortWord]=[]
             cache[sortWord].append(word)
         return list(cache.values())
-
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        # 使用计数法,比较差。
+        cache={}
+        for word in strs:
+            wordconvert=[0]*26
+            for letter in word:
+                wordconvert[ord(letter)-ord('a')]+=1
+            strWordConvert="".join(map(lambda x: "{0:04}".format(x),wordconvert))
+            if strWordConvert not in cache:
+                cache[strWordConvert]=[]
+            cache[strWordConvert].append(word)
+        return list(cache.values())
 def testCase0(instance:Solution=Solution()):
     res=instance.groupAnagrams(["eat","tea","tan","ate","nat","bat"])
     print(res,[["bat"],["nat","tan"],["ate","eat","tea"]])
@@ -21,9 +32,14 @@ def testCase0(instance:Solution=Solution()):
     print(res)
     res=instance.groupAnagrams([""])
     print(res)
-
+def wrongCase0(instance:Solution=Solution()):
+    # 没有注意到当一个字母重复十次以上时，计数法可能会有问题。
+    # 错误的原因没有注意:  0 <= strs[i].length <= 100
+    res=instance.groupAnagrams(["bdddddddddd","bbbbbbbbbbc"])
+    print(res,len(res))
 
 
 if __name__ =="__main__":
     
     testCase0()
+    wrongCase0()
