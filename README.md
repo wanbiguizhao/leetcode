@@ -6,8 +6,9 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 
 # 题目类型
 
+## 树遍历
+- 1448. Count Good Nodes in Binary Tree
 ## 堆排序
-
 - 1405. Longest Happy String
 
 ## 字典
@@ -50,12 +51,12 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 200. Number of Islands
 - 17. Letter Combinations of a Phone Number
 - 394. Decode String
-
+- 1448. Count Good Nodes in Binary Tree
 ## 深度优先DFS
 - 200. Number of Islands
 - 17. Letter Combinations of a Phone Number 
 - 79. Word Search
-
+- 1448. Count Good Nodes in Binary Tree
 ## 看答案会的
 - 588. Design In-Memory File System 主要是处理root中/ 和split（/）,路径数组跳过""的问题。
 - 1775. Equal Sum Arrays With Minimum Number of Operations 有启发，根据答案修正的bug
