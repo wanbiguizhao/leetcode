@@ -40,9 +40,18 @@ class Solution:
 
         Returns:
             int: _description_
-        Runtime: 136 ms
-        Memory Usage: 14.9 MB
-
+        执行用时：
+        104 ms
+        , 在所有 Python3 提交中击败了
+        93.57%
+        的用户
+        内存消耗：
+        15.4 MB
+        , 在所有 Python3 提交中击败了
+        63.05%
+        的用户
+        通过测试用例：
+        103 / 103
         
         """
         freqCounter=Counter(s)

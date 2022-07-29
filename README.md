@@ -72,8 +72,9 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 33. Search in Rotated Sorted Array
 - 79. Word Search
 
-## 辅助处理
+## 辅助处理[增加一些特殊的辅助数据结果]
 - 5. Longest Palindromic Substring.py
-
+- 155. Min Stack
 ## 数据结构
 - 1615. Maximal Network Rank
+- 155. Min Stack
