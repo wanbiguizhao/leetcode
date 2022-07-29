@@ -56,16 +56,13 @@ class Solution:
         elif len(num1)==len(num2) and num2>num1:
             num1,num2=num2,num1
         if num2=="0":
-            return 0 
-        
-        num1List=list(map(int,num1))
-        cache=[ _multiply(num1List,i) for i in range(10)]
-        num2List=list(map(int,num2))
-        nums2Index=len(num2List)-1
+            return "0" 
+        cache=[ _multiply(list(map(int,num1)),i) for i in range(10)]
+        nums2Index=len(num2)-1
         lastResult=""
         while nums2Index>=0:
-            x=num2List[nums2Index]
-            result=cache[x]+"0"*(len(num2List)-nums2Index-1)
+            x=num2[nums2Index]
+            result=cache[int(x)]+"0"*(len(num2)-nums2Index-1)
             lastResult=numStrAdd(result,lastResult)
             nums2Index-=1
         return lastResult
