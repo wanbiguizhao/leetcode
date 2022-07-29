@@ -6,13 +6,21 @@ class TreeNode:
         self.right = right
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
-        self.ans=0
-        pathMaxNodeValue=root.val 
-        def preOrderNode(root:TreeNode,pathMaxNodeValue):
+        def preOrderNode(root:TreeNode,currentPathMaxNodeValue):
             if not root:
                 return 
-            if root.val>=pathMaxNodeValue:
-                self.ans+=1 
+            if root.val>=currentPathMaxNodeValue:
+                self.ans+=1
+                currentPathMaxNodeValue=root.val
+            preOrderNode(root.left,currentPathMaxNodeValue)
+            preOrderNode(root.right,currentPathMaxNodeValue)
+
+        self.ans=0
+        preOrderNode(root,root.val)
+
+        return self.ans
+
+
             
 
 def testCase0(instance:Solution=Solution()):

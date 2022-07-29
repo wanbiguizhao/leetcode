@@ -32,6 +32,34 @@ class Solution:
                     freqCountList.append([numXfreq-1,counter-1])
         return deleteLetterCounter
 
+    def minDeletions(self, s: str) -> int:
+        """_summary_
+
+        Args:
+            s (str): _description_
+
+        Returns:
+            int: _description_
+        Runtime: 136 ms
+        Memory Usage: 14.9 MB
+
+        
+        """
+        freqCounter=Counter(s)
+        freqDescList=sorted(freqCounter.values(),reverse=True)
+        freqUpperBoundary=freqDescList[0]
+        ans=0
+        for cnt in freqDescList:
+            if freqUpperBoundary==0:
+                ans+=cnt
+            elif cnt<=freqUpperBoundary:
+                freqUpperBoundary=cnt-1 
+            else:
+                ans+=cnt-freqUpperBoundary
+                freqUpperBoundary-=1
+        return ans  
+        
+
 def testCase_wrong(instance:Solution=Solution()):
     res=instance.minDeletions("aaabbbcc") # 错误原因freqCountList[-1][0] 搞错下标了
     print(res,res==2)
@@ -49,6 +77,6 @@ def testCase0(instance:Solution=Solution()):
     print(res,res==6)
 if __name__ =="__main__":
     #testCase0()
-    #testCase0()
+    testCase0()
     testCase_wrong()
         
