@@ -50,9 +50,10 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 17. Letter Combinations of a Phone Number
 - 394. Decode String
 
-## 深度优先
+## 深度优先DFS
 - 200. Number of Islands
 - 17. Letter Combinations of a Phone Number 
+- 79. Word Search
 
 ## 看答案会的
 - 588. Design In-Memory File System 主要是处理root中/ 和split（/）,路径数组跳过""的问题。
@@ -67,6 +68,8 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 
 - 15. 3Sum
 - 33. Search in Rotated Sorted Array
+- 79. Word Search
+
 ## 辅助处理
 - 5. Longest Palindromic Substring.py
 
