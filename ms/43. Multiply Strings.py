@@ -5,6 +5,8 @@ class Solution:
         # will negative number be appeared in the inputs ?
         # will number which contain any leading zero be appeared in the inputs？
         # intermediate result 中间结果
+        # 1. 转换为两个字符串之和。
+        # 2. 字符串的移位操作
         def _multiply(AList:List[int],b:int)->str:
             if b==0:
                 return "0"

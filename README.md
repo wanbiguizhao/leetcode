@@ -26,6 +26,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 2. Add Two Numbers
 - 6. ZigZag Conversion #坐标转换。
 - 49. Group Anagrams 转换为素数乘法
+- 43. Multiply Strings 字符乘法
 ## 哈希 
 - 146. LRU Cache
 
