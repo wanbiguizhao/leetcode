@@ -41,15 +41,9 @@ class Solution:
         Returns:
             int: _description_
         执行用时：
-        104 ms
-        , 在所有 Python3 提交中击败了
-        93.57%
-        的用户
+        104 ms, 在所有 Python3 提交中击败了93.57%的用户
         内存消耗：
-        15.4 MB
-        , 在所有 Python3 提交中击败了
-        63.05%
-        的用户
+        15.4 MB, 在所有 Python3 提交中击败了63.05%的用户
         通过测试用例：
         103 / 103
         
