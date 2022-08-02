@@ -14,7 +14,7 @@ class Solution:
             presay=""
             index=1
             while index<len(say):
-                if say[index]==say[index-1]:
+                if say[index]==say[index-1]:# 判断数组中两个字母是否一样，可以采用do while的方法，先检查之前的。
                     cnt+=1
                 else:
                     presay=presay+str(cnt)+num

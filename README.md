@@ -70,7 +70,8 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 
 - 15. 3Sum
 - 33. Search in Rotated Sorted Array
-- 79. Word Search
+- 79. Word Search 
+- 287. Find the Duplicate Number 二分搜索
 
 ## 辅助处理[增加一些特殊的辅助数据结果]
 - 5. Longest Palindromic Substring.py
