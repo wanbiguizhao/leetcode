@@ -62,6 +62,8 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 1775. Equal Sum Arrays With Minimum Number of Operations 有启发，根据答案修正的bug
 - 380. Insert Delete GetRandom O(1)
 - 33. Search in Rotated Sorted Array
+- 287. Find the Duplicate Number 二分搜索
+
 ## OOD
 - 1775. Equal Sum Arrays With Minimum Number of Operations 
 - 380. Insert Delete GetRandom O(1) 解决方案可以一看，删除方案可以一看。
@@ -72,6 +74,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 33. Search in Rotated Sorted Array
 - 79. Word Search 
 - 287. Find the Duplicate Number 二分搜索
+- 240. Search a 2D Matrix II 从左下角开始搜索。
 
 ## 辅助处理[增加一些特殊的辅助数据结果]
 - 5. Longest Palindromic Substring.py
