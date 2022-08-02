@@ -78,3 +78,4 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 ## 数据结构
 - 1615. Maximal Network Rank
 - 155. Min Stack
+- 287. Find the Duplicate Number # 二级索引。

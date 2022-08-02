@@ -1,6 +1,8 @@
+from turtle import left, right
 from typing import List
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
+        # 这个方案不好
         ans=0
         index=0 
         while index<len(nums):
@@ -21,6 +23,20 @@ class Solution:
                 nums[index]=-nums[index]
             index+=1
         return ans 
+    def findDuplicate(self, nums: List[int]) -> int:
+        # 二分查找算法。
+        l,r=1,len(nums)# 代表索引
+        while l<r:
+            mid=(l+r)//2 # mid指向的nums索引所在的数字，
+            cnt=0
+            for num in nums:
+                if num<=mid:
+                    cnt+=1
+            if cnt<=mid:
+                l=mid+1
+            else:
+                r=mid
+        return l 
 def testCase0(instance:Solution=Solution()):
     # res=instance.reverseWords("    ")
     # print(res,res=="")
@@ -33,6 +49,10 @@ def testCase0(instance:Solution=Solution()):
     res=instance.findDuplicate([1,1])
     print(res,res==1)
     res=instance.findDuplicate([2,2,2])
+    print(res,res==2)
+    res=instance.findDuplicate([1,1,2,3,4])
+    print(res,res==1)
+    res=instance.findDuplicate([2,1,2,3,4])
     print(res,res==2)
 if __name__ =="__main__":
     #testCase0()
