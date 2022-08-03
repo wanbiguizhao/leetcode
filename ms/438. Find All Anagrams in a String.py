@@ -19,28 +19,28 @@ class Solution:
         return ans 
     def findAnagrams(self, s: str, p: str) -> List[int]:
         s_len,p_len=len(s),len(p)
-        
+        aAscii=ord('a')
         if s_len<p_len:
             return [] 
         ans=[]
         count=[0]*26
         for i in range(p_len):
-            count[ord(s[i])-ord('a')]+=1
-            count[ord(p[i])-ord('a')]-=1
+            count[ord(s[i])-aAscii]+=1
+            count[ord(p[i])-aAscii]-=1
         differ=[ c!=0 for c in count].count(True)
         if differ==0:
             ans.append(0)
         for i in range(s_len-p_len):
-            if count[ord(s[i])-ord('a')]==1:
+            if count[ord(s[i])-aAscii]==1:
                 differ-=1
-            elif count[ord(s[i])-ord('a')]==0:
+            elif count[ord(s[i])-aAscii]==0:
                 differ+=1
-            count[ord(s[i])-ord('a')]-=1 
-            if count[ord(s[i+p_len])-ord('a')]==-1:
+            count[ord(s[i])-aAscii]-=1 
+            if count[ord(s[i+p_len])-aAscii]==-1:
                 differ-=1
-            elif count[ord(s[i+p_len])-ord('a')]==0:# pointer
+            elif count[ord(s[i+p_len])-aAscii]==0:# pointer
                 differ+=1
-            count[ord(s[i+p_len])-ord('a')]+=1 
+            count[ord(s[i+p_len])-aAscii]+=1 
             if differ==0:
                 ans.append(i+1)
         return ans 
