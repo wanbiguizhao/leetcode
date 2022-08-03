@@ -45,6 +45,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 3. Longest Substring Without Repeating Characters
 - 15. 3Sum
 - 33. Search in Rotated Sorted Array
+- 443. String Compression 【do while 结构】
 ## 递归
 - 1647. Minimum Deletions to Make Character Frequencies Unique 使用了堆栈的数据结构。
 - 151. Reverse Words in a String
@@ -64,6 +65,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 33. Search in Rotated Sorted Array
 - 287. Find the Duplicate Number 二分搜索
 - 7. Reverse Integer 注意边界推导过程
+- 4. Median of Two Sorted Arrays
 ## OOD
 - 1775. Equal Sum Arrays With Minimum Number of Operations 
 - 380. Insert Delete GetRandom O(1) 解决方案可以一看，删除方案可以一看。
@@ -75,6 +77,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 79. Word Search 
 - 287. Find the Duplicate Number 二分搜索
 - 240. Search a 2D Matrix II 从左下角开始搜索。
+- 4. Median of Two Sorted Arrays 二分搜索
 
 ## 辅助处理[增加一些特殊的辅助数据结果]
 - 5. Longest Palindromic Substring.py
