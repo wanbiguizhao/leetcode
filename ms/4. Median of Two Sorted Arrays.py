@@ -24,7 +24,7 @@ class Solution:
         totalLength=m+n 
         if totalLength%2==1:
             return findKthElement((totalLength+1)//2)
-        return (findKthElement((totalLength)//2)+findKthElement((totalLength)//2+1))//2
+        return (findKthElement(totalLength//2)+findKthElement(totalLength//2+1))//2
 def testCase0(instance:Solution=Solution()):
     assert instance.findMedianSortedArrays(nums1 = [1,3], nums2 = [2])==2.0
 def wrongCase0(instance:Solution=Solution()):
