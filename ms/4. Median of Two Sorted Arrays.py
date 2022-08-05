@@ -11,7 +11,7 @@ class Solution:
                     return nums1[index1+k-1]
                 if k==1:
                     return min(nums1[index1],nums2[index2])
-                nIndex1=min(index1+k//2-1,m-1)
+                nIndex1=min(index1+k//2-1,m-1)# 这一步是核心。我每次都拿k//2个数字，知道这k//2在哪一个数组里面。
                 nIndex2=min(index2+k//2-1,n-1)
                 pivot1,pivot2=nums1[nIndex1],nums2[nIndex2]
                 if pivot1<=pivot2:

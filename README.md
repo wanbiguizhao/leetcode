@@ -46,6 +46,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 15. 3Sum
 - 33. Search in Rotated Sorted Array
 - 443. String Compression 【do while 结构】
+- 42. Trapping Rain Water
 ## 递归
 - 1647. Minimum Deletions to Make Character Frequencies Unique 使用了堆栈的数据结构。
 - 151. Reverse Words in a String
@@ -86,3 +87,8 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 1615. Maximal Network Rank
 - 155. Min Stack
 - 287. Find the Duplicate Number # 二级索引。
+
+## Hard 
+- 42. Trapping Rain Water [独自完成]
+- 4. Median of Two Sorted Arrays
+- 41. First Missing Positive

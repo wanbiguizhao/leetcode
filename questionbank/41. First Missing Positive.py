@@ -36,7 +36,7 @@ class Solution:
             index = abs(num) - 1
             if index >=0 and index<len(nums):
                 if nums[index] == 0:
-                    num[index] = -1 # 这个时候0*-1 是不生效的，只需要表示，index代表的正数时存在的。
+                    nums[index] = -1 # 这个时候0*-1 是不生效的，只需要表示，index代表的正数时存在的。
                 elif nums[index] >0:
                     nums[index]=-nums[index]
             for index,num in enumerate(num):
