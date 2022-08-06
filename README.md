@@ -67,6 +67,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 287. Find the Duplicate Number 二分搜索
 - 7. Reverse Integer 注意边界推导过程
 - 4. Median of Two Sorted Arrays
+- 32. Longest Valid Parentheses
 ## OOD
 - 1775. Equal Sum Arrays With Minimum Number of Operations 
 - 380. Insert Delete GetRandom O(1) 解决方案可以一看，删除方案可以一看。
@@ -92,3 +93,4 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 42. Trapping Rain Water [独自完成]
 - 4. Median of Two Sorted Arrays
 - 41. First Missing Positive
+- 32. Longest Valid Parentheses

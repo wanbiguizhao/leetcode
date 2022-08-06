@@ -2,6 +2,8 @@ from typing import List
 
 class Solution:
     def longestValidParentheses(self, s: str) -> int:
+        # runtime complexty O(n)
+        # space complexity O(1)
         ans=0
         left,right=0,0
         index=0
@@ -30,6 +32,20 @@ class Solution:
                 left=right=0
             index-=1 
         return ans 
+    def longestValidParentheses(self, s: str) -> int:
+        ans=0
+        indexStack=[-1]
+        for index,alphbet in enumerate(s):
+            if alphbet=="(":
+                indexStack.append(index)
+            else:
+                indexStack.pop()
+                if not indexStack:
+                    indexStack.append(index)
+                else:
+                    ans=max(ans,index-indexStack[-1])
+        return ans 
+
 
             
         
