@@ -65,3 +65,4 @@ class Solution:
         mid=(beg+end)//2
     
         return mergeTwoLists(self.mergeKLists(lists[beg:mid+1]),self.mergeKLists(lists[mid+1:]))
+        # 注意空的数据集
