@@ -95,3 +95,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 4. Median of Two Sorted Arrays
 - 41. First Missing Positive
 - 32. Longest Valid Parentheses
+
+## 回溯
+- 39. Combination Sum
+- 22. Generate Parentheses
