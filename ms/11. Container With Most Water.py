@@ -6,10 +6,12 @@ class Solution:
         ans=0
         while leftIndex<rightIndex:
             hl,hr=height[leftIndex],height[rightIndex]
-            ans=max(ans,min(hl,hr)*(rightIndex-leftIndex))
+            
             if hl>hr:
+                ans=max(ans,hr*(rightIndex-leftIndex))
                 rightIndex-=1
             else:
+                ans=max(ans,hl*(rightIndex-leftIndex))
                 leftIndex+=1 
         return ans 
 
