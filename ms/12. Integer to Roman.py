@@ -1,9 +1,10 @@
+from functools import reduce
 from typing import List 
 
 class Solution:
     def intToRoman(self, num: int) -> str:
         ans=""
-        while num>1000:
+        while num>=1000:
             num-=1000
             ans+="M"
         if num>=900:
@@ -56,5 +57,8 @@ def testCase0(instance:Solution=Solution()):
 def wrongCase0(instance:Solution=Solution()):
     pass
 if __name__ =="__main__":
+    a=[1,2,3]
+    b=[2,3,4]
+    print(reduce())
     testCase0()
     wrongCase0()
