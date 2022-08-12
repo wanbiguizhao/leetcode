@@ -8,6 +8,7 @@ class ListNode:
 class Solution:
 
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        # 关键要保存翻转节点的前一个节点和后一个节点。
         def reverse(head,tail):
             helpNode=ListNode()
             curNode=head 
@@ -27,7 +28,7 @@ class Solution:
             return None 
         preheadNode=ListNode()
         preheadNode.next=head
-        prev=preheadNode 
+        preNode=preheadNode 
 
         begNode=head 
         endNode=head
