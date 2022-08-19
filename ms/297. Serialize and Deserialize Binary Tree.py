@@ -1,39 +1,30 @@
-import queue
-from turtle import right
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
 
 class Codec:
-
     def serialize(self, root):
         """Encodes a tree to a single string.
         
         :type root: TreeNode
         :rtype: str
         """
-        ans=[]
+        
         if not root:
-            return ans 
+            return "" 
         
         levelQueue=[(0,root)]
         ans=""
-        stop_flag=False
-        while levelQueue and not stop_flag:
+        while levelQueue :
             tmpQueue=[]
             for nodeInfo in levelQueue:
                 nodeIndex, nodeObject=nodeInfo[0],nodeInfo[1]
                 ans+="{}->{};".format(nodeIndex,nodeObject.val)
                 if nodeObject.left:
                     leftSonIndex=nodeIndex*2+1
-                    tmpQueue.append([leftSonIndex,nodeObject])
+                    tmpQueue.append([leftSonIndex,nodeObject.left])
                 if nodeObject.right:
                     rightSonIndex=nodeIndex*2+2
-                    tmpQueue.append([rightSonIndex,nodeObject])
+                    tmpQueue.append([rightSonIndex,nodeObject.right])
             levelQueue=tmpQueue
-        print(ans)
+            #print(ans)
         return ans
 
     def deserialize(self, data):
@@ -44,34 +35,33 @@ class Codec:
         """
         if not data:
             return None
-        nodeInfoList=data.spilt(";")
+        nodeInfoList=data.split(";")
         nodeCache={}
-        for nodeInfo in nodeInfoList:
+        for nodeInfo in nodeInfoList[:-1]:
             nodeIndex,nodeVal=nodeInfo.split("->")
-            nodeCache[nodeIndex]=int(nodeVal)
-
-        rootnode=TreeNode(data['0'])
-        levelQueueNodeAndIndex=[[rootnode,0]] 
-        index=0
-
+            nodeCache[int(nodeIndex)]=TreeNode(int(nodeVal))
+        #print(nodeCache)
+        rootnode=TreeNode(nodeCache[0].val)
+        levelQueueNodeAndIndex=[]
+        if 1 in nodeCache:
+            rootnode.left=nodeCache[1]
+            levelQueueNodeAndIndex.append(1)
+        if  2 in nodeCache:
+            rootnode.right=nodeCache[2]
+            levelQueueNodeAndIndex.append(2)
         while levelQueueNodeAndIndex:
             tmpQueue=[]
-            for data in levelQueueNodeAndIndex:
-                index,treeNode=data[0],data[1]
-                if treeNode==None:
-                    continue 
-                else:
-                    leftSonIndex=index*2+1
-                    if data[leftSonIndex]:
-                        leftTreeNode = TreeNode(data[leftSonIndex])
-                        treeNode.left= leftTreeNode 
-                        tmpQueue.append([leftSonIndex,leftTreeNode])
-                    rightSonIndex=index*2+2
-                    if data[rightSonIndex]:
-                        rightTreeNode = TreeNode(data[rightSonIndex])
-                        treeNode.right=rightTreeNode
-                        tmpQueue.append([rightSonIndex,rightTreeNode])
+            #print(levelQueueNodeAndIndex)
+            for nodeIndex in levelQueueNodeAndIndex:
+                treenode=nodeCache[nodeIndex]
+                leftSonIndex=nodeIndex*2+1
+                if leftSonIndex in nodeCache:
+                    tmpQueue.append(leftSonIndex)
+                    treenode.left=nodeCache[leftSonIndex]
+                rightSonIndex=nodeIndex*2+2
+                if rightSonIndex in nodeCache:
+                    tmpQueue.append(rightSonIndex)
+                    treenode.right=nodeCache[rightSonIndex]
             levelQueueNodeAndIndex=tmpQueue
+            #print(tmpQueue)
         return rootnode
-
-        
