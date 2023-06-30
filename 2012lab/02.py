@@ -3,6 +3,7 @@ from typing import List
 from collections import Counter,defaultdict
 import functools
 class Solution:
+    # tag: 排序
     def run(self, string_list: List[str]) -> str:
         string_list=[sorted(word) for word in string_list]# bug fix : but ubt btu 可能出现割裂，先word排序，然后再统计
         string_counter=Counter(string_list)
