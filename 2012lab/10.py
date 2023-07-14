@@ -3,7 +3,7 @@ from collections import Counter,defaultdict
 import functools
 class Solution:
     # tag: 滑动窗口, 窗口里面的数据是可以做任意调整的，调整的数据就是需要是可以让窗口外的数据达到平衡
-    # 窗口外的字母需要达到平衡所确实的字母数，窗口内能否提供，如果可以提供，
+    # 窗口外的字母需要达到平衡所确实的字母数，窗口内能否提供，如果可以提供，那么记录窗口的值。
     def run(self,wasd_string ) -> int:
         wasd_counter=Counter(wasd_string)
         if wasd_counter["W"]==wasd_counter["A"] and wasd_counter["W"]==wasd_counter["S"] and wasd_counter["W"]==wasd_counter["D"]:
