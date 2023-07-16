@@ -35,6 +35,27 @@ class Solution:
                 squareBrackIndexCache[xindex]=index 
         ans=_recDecodeString(0,len(s))
         return ans 
+    def decodeString(self, s: str) -> str:
+
+        num_stack=[]
+        char_stack=['']
+        num=""
+        for x in s:
+            if x=="[":
+                num_stack.append(int(num))
+                char_stack.append("")
+                num=""
+            elif x=="]":
+                n=num_stack.pop(-1)
+                strinf=char_stack.pop(-1) # 都要出栈非常重要
+                char_stack[-1]+=strinf*n
+            elif x in "01234567890":
+                num+=x 
+            else:
+                char_stack[-1]+=x 
+        return "".join(char_stack)
+
+                
 def testCase0(instance:Solution=Solution()):
     # res=instance.reverseWords("    ")
     # print(res,res=="")
