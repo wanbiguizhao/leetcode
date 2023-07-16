@@ -101,3 +101,6 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 ## 回溯
 - 39. Combination Sum
 - 22. Generate Parentheses
+
+## 连续系列
+- 523 questionbank/523. 连续的子数组和.py # 前缀和
