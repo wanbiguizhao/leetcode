@@ -12,6 +12,9 @@
 # 输出: 1
 # 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
 
+from bisect import bisect_left
+
+
 def getXLongestSub(s:str):
     const_len=len(s)
     alphet_set=set()
@@ -30,7 +33,6 @@ def getXLongestSub(s:str):
         right+=1
     return ans
 # test case 01
-
 if __name__=="__main__":
     assert getXLongestSub("a")==1
     print(getXLongestSub("aba"),2)
@@ -42,3 +44,5 @@ if __name__=="__main__":
     print( getXLongestSub("pwwkew"))
     #assert getXLongestSub("abbca")==2 # ？
 
+from bisect import bisect_left
+bisect_left(range(max(100)),)

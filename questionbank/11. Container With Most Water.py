@@ -1,3 +1,4 @@
+from functools import cmp_to_key
 from typing import List
 class Solution:
     def maxArea_no_optional(self, height: List[int]) -> int:
@@ -43,3 +44,4 @@ if __name__ == "__main__":
     print(instance.maxArea([1,2,3,4,5,6,9,8,22,9]),1)
 
 
+cmp_to_key
