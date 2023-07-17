@@ -83,6 +83,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 287. Find the Duplicate Number 二分搜索
 - 240. Search a 2D Matrix II 从左下角开始搜索。
 - 4. Median of Two Sorted Arrays 二分搜索
+- 875 吃香蕉，二分搜索
 
 ## 辅助处理[增加一些特殊的辅助数据结果]
 - 5. Longest Palindromic Substring.py
