@@ -17,11 +17,11 @@
 第一种方法实现：
 """
 class RepeatSubarray:
-    def is_repeat_subarray_in_seq(self,seq:list[int],k:int):
+    def is_repeat_subarray_in_seq(self,seq:list[int],seq_len_k:int):
         def dfs(ith,tmp_list):
             if self.bingo_flag:
                 return 
-            if len(tmp_list)==k:
+            if len(tmp_list)==seq_len_k:
                 sub_array="-".join(map(str,tmp_list))
                 if sub_array in subarray_cache:
                     self.bingo_flag=True 
@@ -32,7 +32,7 @@ class RepeatSubarray:
                 return 
             dfs(ith+1,tmp_list+[seq[ith]])
             dfs(ith+1,tmp_list)
-        if k>=len(seq) or k ==1:
+        if seq_len_k>=len(seq) :#or seq_len_k ==1:
             return False
         self.bingo_flag=False
         subarray_cache=set()# 缓存，用于标识字符串是否已经出现。
@@ -40,6 +40,8 @@ class RepeatSubarray:
         return self.bingo_flag
 checker=RepeatSubarray()
 assert checker.is_repeat_subarray_in_seq([1,22,33,1,33],2)==True
+assert checker.is_repeat_subarray_in_seq([1,2,3,4,5,1,2,3,4,5],5)==True
+assert checker.is_repeat_subarray_in_seq([1,2,2,3,4,5,1,2,2,3,4,5,6,2,2,3],6)==True
 # 边界检测
 assert checker.is_repeat_subarray_in_seq([1,22,33,22,33],3)==True
 assert checker.is_repeat_subarray_in_seq([1,1,22,33],3)==True
@@ -47,13 +49,14 @@ assert checker.is_repeat_subarray_in_seq([1,22,1,33,44],4)==False
 assert checker.is_repeat_subarray_in_seq([1,22,22,1,1,22,33,44,55],5)==True
 assert checker.is_repeat_subarray_in_seq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15],15)==True
 assert checker.is_repeat_subarray_in_seq(list(range(30)),3)==False
+assert checker.is_repeat_subarray_in_seq([1,2,2,3,4,5,1,2,2,3,4,5,6,2,2,3],15)==True
 
 # %%
 """
 第二种测试：
 """
-def is_repeat_subarray_in_seq(seq:list[int],k:int):
-    if k==1 or k>=len(seq):
+def is_repeat_subarray_in_seq(seq:list[int],sub_seq_k:int):
+    if sub_seq_k>=len(seq):
         return False
     cache_index={}
     i=len(seq)-1
@@ -65,7 +68,7 @@ def is_repeat_subarray_in_seq(seq:list[int],k:int):
         i=i-1
     i=len(seq)-1
     while i>=0:
-        if cache_index[seq[i]]!=-1 and cache_index[seq[i]]>=k-1:
+        if cache_index[seq[i]]!=-1 and cache_index[seq[i]]>=sub_seq_k-1:
             return True
         i-=1
     return False
@@ -74,6 +77,12 @@ def is_repeat_subarray_in_seq(seq:list[int],k:int):
 原题提供的测试用例
 """
 assert is_repeat_subarray_in_seq([1,2,3,4,5,1,2,3,4,5],5)==True
+assert is_repeat_subarray_in_seq([1,2,2,3,4,5,1,2,2,3,4,5,6,2,2,3],6)==True
+assert is_repeat_subarray_in_seq([1,2,2,3,4,5,1,2,2,3,4,5,6,2,2,3],7)==True
+assert is_repeat_subarray_in_seq([1,2,2,3,4,5,1,2,2,3,4,5,6,2,2,3],13)==True
+assert is_repeat_subarray_in_seq([1,2,2,3,4,5,1,2,2,3,4,5,6,2,2,3],14)==True
+assert is_repeat_subarray_in_seq([1,2,2,3,4,5,1,2,2,3,4,5,6,2,2,3],15)==True
+
 """
 边界值测试
 """
@@ -83,18 +92,18 @@ assert is_repeat_subarray_in_seq([1,2,3,4,5,5,4,3,2,1],6)==False
 assert is_repeat_subarray_in_seq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15],15)==True
 
 """
-根据提取，提前返回False
+根据题意，提前返回False
 """
 assert is_repeat_subarray_in_seq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15],17)==False
-assert is_repeat_subarray_in_seq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15],1)==False
-
+assert is_repeat_subarray_in_seq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15],1)==True
+assert is_repeat_subarray_in_seq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],1)==False
 """
 全路径测试
 """
 assert is_repeat_subarray_in_seq(list(range(300))+list(range(300,0,-1)),2)==True
 assert is_repeat_subarray_in_seq(list(range(300))+list(range(300)),400)==False
 assert is_repeat_subarray_in_seq(list(range(300))+list(range(300)),300)==True
-assert is_repeat_subarray_in_seq(list(range(300))+list(range(300)),1)==False
+assert is_repeat_subarray_in_seq(list(range(300))+list(range(300)),1)==True
 assert is_repeat_subarray_in_seq(list(range(300))+list(range(300))+list(range(300)),600)==True
 assert is_repeat_subarray_in_seq(list(range(300))+list(range(300))+list(range(300)),601)==False
 
