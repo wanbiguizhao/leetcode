@@ -29,6 +29,7 @@ https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-
 - 6. ZigZag Conversion #坐标转换。
 - 49. Group Anagrams 转换为素数乘法
 - 43. Multiply Strings 字符乘法
+- 47. 排列2
 ## 哈希 
 - 146. LRU Cache
 
